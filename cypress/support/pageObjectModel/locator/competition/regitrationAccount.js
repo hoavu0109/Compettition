@@ -1,5 +1,9 @@
 class RegistrationAccount {
+    registerHeaderText = '.ant-space-item'
+    basicInformationForm ='#basic'
 
+    listTextBase = '.title.text-base.font-normal'
+    uploadFileBtn = '.ant-upload button'
     enterAbbreviationParticipating1 ='#basic_participatingUnitChineseName'
     enterAbbreviationParticipating2 ='#basic_participatingUnitEnglishName'
     enterLegalEntity ='#basic_legalEntity'
@@ -54,7 +58,7 @@ class RegistrationAccount {
     companyDescriptionChina = '#basic_companyDescriptionChinese'
     companyDescriptionEnglish = '#basic_companyDescriptionEnglish'
 
-    revenueGovernmentBudgetDroplist = '#basic_revenues_y2032_revenueOrGovernmentBudgetFormInput1'
+    revenueGovernmentBudgetDroplist = '#basic_revenues_y2019_revenueOrGovernmentBudgetFormInput1'
     revenueGovernmentBudgetRevenues= '#basic_revenues_y2032_revenueOrGovernmentBudgetFormInput2'
     globalRevenueDroplist = '#basic_revenues_y2032_globalRevenueFormInput1'
     globalRevenueGlobal ='#basic_revenues_y2032_globalRevenueFormInput2'
