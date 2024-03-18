@@ -47,8 +47,16 @@ class RegitrationAccountObject {
         return cy.get(registrationAccount.enterManagingDirector2)
     }
 
+    enterAddressPostCode1() {
+        return cy.get(registrationAccount.enterAddressPostCode1)
+    }
+
     enterAddress1() {
         return cy.get(registrationAccount.enterAddress1)
+    }
+
+    enterAddressPostCode2() {
+        return cy.get(registrationAccount.enterAddressPostCode2)
     }
 
     enterAddress2() {
@@ -297,6 +305,7 @@ class RegitrationAccountObject {
     currentYearSecondSeasonEPSSeason() {
         return cy.get(registrationAccount.currentYearSecondSeasonEPSSeason)
     }
+
     radioTaiwan() {
         return cy.get(registrationAccount.radioEntityNationalityTaiwan).eq(1)
     }

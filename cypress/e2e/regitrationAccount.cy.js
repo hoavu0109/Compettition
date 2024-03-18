@@ -4,10 +4,20 @@ describe('Check registration account follow', () => {
     beforeEach(() => {
         cy.visit('https://competition.azure-uat.senecaesg.com/login')
     })
-    it.only('input value into regitration account', () => {
+    it.only('test',()=>{
+        cy.get('button[type="button"]').eq(1).click()
+        // registrationAccountObject.enterCopyEmail1().type('xXX@gmail11.com')
+        // registrationAccountObject.enterCopyEmail2().type('xXX@gmail.com')
+        registrationAccountObject.radioEntityNationalityForeign().click()
+        registrationAccountObject.radioEntityNationalityForeignOptions().click()
+        cy.get('#basic_corNationality').click()
+        cy.get('.ant-select-item-option-content').eq(1).select()
+
+    })
+    it('input value into regitration account', () => {
         cy.get('button[type="button"]').eq(1).click()
         // Input and verify data into registration screen
-        registrationAccountObject.registerHeaderText().contains('Register')
+        registrationAccountObject.registerHeaderText().contains('Member Registration')
         registrationAccountObject.basicInformationForm().should('exist')
         registrationAccountObject.listTextBase().eq(0).contains('Registration certificate')
         registrationAccountObject.enterAbbreviationParticipating1().type('全家便利商店')
@@ -17,7 +27,9 @@ describe('Check registration account follow', () => {
         registrationAccountObject.enterCorporateCode().type('12345678')
         registrationAccountObject.enterManagingDirector1().type('全家便利商店')
         registrationAccountObject.enterManagingDirector2().type('全家便利商店')
+        registrationAccountObject.enterAddressPostCode1().type('10446')
         registrationAccountObject.enterAddress1().type('10446')
+        registrationAccountObject.enterAddressPostCode2().type('10446')
         registrationAccountObject.enterAddress2().type('10446')
         //contact person
         registrationAccountObject.enterContactDivision().type('公共事務暨品牌溝通室')

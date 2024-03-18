@@ -11,7 +11,9 @@ class RegistrationAccount {
     enterCorporateCode ='#basic_corporateCode'
     enterManagingDirector1 ='#basic_chineseName'
     enterManagingDirector2 ='#basic_englishName'
-    enterAddress1 = '#basic_addressEnglishFormInput1'
+    enterAddressPostCode1 ='#basic_addressFormInput1'
+    enterAddress1 = '#basic_addressFormInput2'
+    enterAddressPostCode2 = '#basic_addressEnglishFormInput1'
     enterAddress2 = '#basic_addressEnglishFormInput2'
 
     enterContactDivision ='#basic_contactDivision'
