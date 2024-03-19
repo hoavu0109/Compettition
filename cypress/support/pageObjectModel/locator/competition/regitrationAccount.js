@@ -5,6 +5,7 @@ class RegistrationAccount {
 
     listTextBase = '.title.text-base.font-normal'
     uploadFileBtn = '.ant-upload button'
+    businessRegistrationCertificate ='#basic_businessRegistrationCertificate'
     enterAbbreviationParticipating1 ='#basic_participatingUnitChineseName'
     enterAbbreviationParticipating2 ='#basic_participatingUnitEnglishName'
     enterLegalEntity ='#basic_legalEntity'
@@ -29,6 +30,7 @@ class RegistrationAccount {
     enterCopyEmail1 ='#basic_copyEmailDefault'
     enterCopyEmail2 = '#basic_copyEmail_0_email'
 
+    orgImageFileInput ='#basic_orgImageFile'
     radioEntityNationalityTaiwan = '.ant-radio-input[value ="TAIWAN"]'
     radioEntityNationalityForeign = '.ant-radio-input[value ="FOREIGN"]'
     radioEntityNationalityForeignOptions = '#basic_corNationality'

@@ -21,7 +21,9 @@ class RegitrationAccountObject {
     uploadFileBtnBasicInfo() {
         return cy.get(registrationAccount.uploadFileBtn).eq(0)
     }
-
+    businessRegistrationCertificate(){
+        return cy.get(registrationAccount.businessRegistrationCertificate)
+    }
     enterAbbreviationParticipating1() {
         return cy.get(registrationAccount.enterAbbreviationParticipating1)
     }
@@ -118,6 +120,9 @@ class RegitrationAccountObject {
     }
 
     //Unit Information
+    orgImageFileInput(){
+        return cy.get(registrationAccount.orgImageFileInput)
+    }
     uploadFileBtnUnitInfo() {
         return cy.get(registrationAccount.uploadFileBtn).eq(1)
     }
