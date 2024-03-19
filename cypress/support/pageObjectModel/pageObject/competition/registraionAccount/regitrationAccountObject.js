@@ -9,14 +9,17 @@ class RegitrationAccountObject {
     basicInformationForm() {
         return cy.get(registrationAccount.basicInformationForm)
     }
+    arrowViewIcons(){
+        return cy.get(registrationAccount.arrowViewIcon)
+    }
 
     //Basic Information droplist
     listTextBase() {
         return cy.get(registrationAccount.listTextBase)
     }
 
-    uploadFileBtn() {
-        return cy.get(registrationAccount.uploadFileBtn)
+    uploadFileBtnBasicInfo() {
+        return cy.get(registrationAccount.uploadFileBtn).eq(0)
     }
 
     enterAbbreviationParticipating1() {
@@ -61,6 +64,9 @@ class RegitrationAccountObject {
 
     enterAddress2() {
         return cy.get(registrationAccount.enterAddress2)
+    }
+    arrowViewIconBasicInfo(){
+        return  registrationAccountObject.arrowViewIcons().eq(0)
     }
 
     //Contact Person
@@ -107,8 +113,14 @@ class RegitrationAccountObject {
     enterCopyEmail2() {
         return cy.get(registrationAccount.enterCopyEmail2)
     }
+    arrowViewIconContactPerson(){
+       return  registrationAccountObject.arrowViewIcons().eq(1)
+    }
 
     //Unit Information
+    uploadFileBtnUnitInfo() {
+        return cy.get(registrationAccount.uploadFileBtn).eq(1)
+    }
     radioEntityNationalityTaiwan() {
         return cy.get(registrationAccount.radioEntityNationalityTaiwan).eq(0)
     }
@@ -119,6 +131,9 @@ class RegitrationAccountObject {
 
     radioEntityNationalityForeignOptions() {
         return cy.get(registrationAccount.radioEntityNationalityForeignOptions)
+    }
+    radioEntityNationalityForeignOptionsValue() {
+        return cy.get(registrationAccount.radioEntityNationalityForeignOptionsValue)
     }
 
     radioWhetherPublishReportYes() {
@@ -232,6 +247,9 @@ class RegitrationAccountObject {
     companyDescriptionEnglish() {
         return cy.get(registrationAccount.companyDescriptionEnglish)
     }
+    arrowViewIconUnitInfo(){
+        return  registrationAccountObject.arrowViewIcons().eq(2)
+    }
 
     //Unit Financials
     revenueGovernmentBudgetDroplist() {
@@ -320,6 +338,9 @@ class RegitrationAccountObject {
 
     completeBtn() {
         return cy.get(registrationAccount.completeBtn)
+    }
+    arrowViewIconUnitFinancials(){
+        return  registrationAccountObject.arrowViewIcons().eq(0)
     }
 
 }
