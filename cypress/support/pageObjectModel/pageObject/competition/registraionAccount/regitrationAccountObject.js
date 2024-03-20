@@ -1,7 +1,7 @@
 import registrationAccount from "../../../locator/competition/regitrationAccount";
 
 class RegitrationAccountObject {
-    // header
+    // header and common
     registerHeaderText() {
         return cy.get(registrationAccount.registerHeaderText)
     }
@@ -12,7 +12,9 @@ class RegitrationAccountObject {
     arrowViewIcons(){
         return cy.get(registrationAccount.arrowViewIcon)
     }
-
+    currencyOptions(){
+        return cy.get(registrationAccount.currencyOptions)
+    }
     //Basic Information droplist
     listTextBase() {
         return cy.get(registrationAccount.listTextBase)
@@ -184,11 +186,24 @@ class RegitrationAccountObject {
     GRICategory() {
         return cy.get(registrationAccount.GRICategory)
     }
-
+    selectItemOptions(){
+        return cy.get(registrationAccount.selectItemOptions)
+    }
+    selectOrganizationType(){
+        return registrationAccountObject.selectItemOptions().eq(0)
+    }
+    selectSizeOfOperation(){
+        return registrationAccountObject.selectItemOptions().eq(7)
+    }
+    selectIndustry(){
+        return registrationAccountObject.selectItemOptions().eq(15)
+    }
+    selectGRICategory(){
+        return registrationAccountObject.selectItemOptions().eq(24)
+    }
     capitalization1() {
         return cy.get(registrationAccount.capitalization1)
     }
-
     capitalization2() {
         return cy.get(registrationAccount.capitalization2)
     }
@@ -260,7 +275,12 @@ class RegitrationAccountObject {
     revenueGovernmentBudgetDroplist() {
         return cy.get(registrationAccount.revenueGovernmentBudgetDroplist)
     }
-
+    NTDCurrencyRevenueGovernmentBudget(){
+        return registrationAccountObject.currencyOptions().eq(0)
+    }
+    USDCurrencyRevenueGovernmentBudget(){
+        return registrationAccountObject.currencyOptions().eq(1)
+    }
     revenueGovernmentBudgetRevenues() {
         return cy.get(registrationAccount.revenueGovernmentBudgetRevenues)
     }
@@ -268,7 +288,12 @@ class RegitrationAccountObject {
     globalRevenueDroplist() {
         return cy.get(registrationAccount.globalRevenueDroplist)
     }
-
+    NTDCurrencyGlobalRevenue(){
+        return registrationAccountObject.currencyOptions().eq(2)
+    }
+    USDCurrencyGlobalRevenue(){
+        return registrationAccountObject.currencyOptions().eq(3)
+    }
     globalRevenueGlobal() {
         return cy.get(registrationAccount.globalRevenueGlobal)
     }
@@ -276,13 +301,24 @@ class RegitrationAccountObject {
     enterpriseIncomeTaxDroplist() {
         return cy.get(registrationAccount.enterpriseIncomeTaxDroplist)
     }
-
+    NTDCurrencyEnterpriseIncomeTax(){
+        return registrationAccountObject.currencyOptions().eq(4)
+    }
+    USDCurrencyEnterpriseIncomeTax(){
+        return registrationAccountObject.currencyOptions().eq(5)
+    }
     enterpriseIncomeTax() {
         return cy.get(registrationAccount.enterpriseIncomeTax)
     }
 
     taiwanMarketValueDroplist() {
         return cy.get(registrationAccount.taiwanMarketValueDroplist)
+    }
+    NTDCurrencyTaiwanMarketValue(){
+        return registrationAccountObject.currencyOptions().eq(6)
+    }
+    USDCurrencyTaiwanMarketValue(){
+        return registrationAccountObject.currencyOptions().eq(7)
     }
 
     taiwanMarketValueMarket() {
@@ -291,6 +327,12 @@ class RegitrationAccountObject {
 
     EPSValueDroplist() {
         return cy.get(registrationAccount.EPSValueDroplist)
+    }
+    NTDCurrencyEPSValue(){
+        return registrationAccountObject.currencyOptions().eq(8)
+    }
+    USDCurrencyEPSValue(){
+        return registrationAccountObject.currencyOptions().eq(9)
     }
 
     EPSValueEPS() {
@@ -316,7 +358,12 @@ class RegitrationAccountObject {
     currentYearFirstSeasonEPSDroplist() {
         return cy.get(registrationAccount.currentYearFirstSeasonEPSDroplist)
     }
-
+    NTDCurrencyCurrentYearFirstSeasonEPS(){
+        return registrationAccountObject.currencyOptions().eq(10)
+    }
+    USDCurrencyCurrentEYearFirstSeasonEPS(){
+        return registrationAccountObject.currencyOptions().eq(11)
+    }
     currentYearFirstSeasonEPSFirst() {
         return cy.get(registrationAccount.currentYearFirstSeasonEPSFirst)
     }
@@ -324,7 +371,12 @@ class RegitrationAccountObject {
     currentYearSecondSeasonEPSDroplist() {
         return cy.get(registrationAccount.currentYearSecondSeasonEPSDroplist)
     }
-
+    NTDCurrencyCurrentYearSecondSeasonEPS(){
+        return registrationAccountObject.currencyOptions().eq(12)
+    }
+    USDCurrencyCurrentYearSecondSeasonEPS(){
+        return registrationAccountObject.currencyOptions().eq(13)
+    }
     currentYearSecondSeasonEPSSeason() {
         return cy.get(registrationAccount.currentYearSecondSeasonEPSSeason)
     }
