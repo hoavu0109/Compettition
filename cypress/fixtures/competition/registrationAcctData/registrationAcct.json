@@ -1,0 +1,38 @@
+[
+  {
+    "name": "test1",
+    "data_test": {
+      "email": "abc@gmail.com",
+      "organization_type": [
+        "company",
+        "universities",
+        "hospital"
+      ],
+      "address": "this is a address"
+    }
+  },
+  {
+    "name": "test2",
+    "data_test": {
+      "email": "abc@gmail.com",
+      "organization_type": [
+        "company",
+        "universities",
+        "hospital"
+      ],
+      "address": "this is a address"
+    }
+  },
+  {
+    "name": "test3",
+    "data_test": {
+      "email": "abc@gmail.com",
+      "organization_type": [
+        "company",
+        "universities",
+        "hospital"
+      ],
+      "address": "this is a address"
+    }
+  }
+]

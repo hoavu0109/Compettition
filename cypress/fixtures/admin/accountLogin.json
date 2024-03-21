@@ -1,4 +1,10 @@
-{
-  "acct": "hoa.vu",
-  "password": "Admin123"
-}
+[
+  {
+    "acct": "hoa.vu",
+    "password": "Admin123"
+  },
+  {
+    "acct": "hoa.vu1",
+    "password": "Admin1234"
+  }
+]
