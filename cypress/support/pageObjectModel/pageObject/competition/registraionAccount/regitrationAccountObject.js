@@ -12,8 +12,11 @@ class RegitrationAccountObject {
     arrowViewIcons(){
         return cy.get(registrationAccount.arrowViewIcon)
     }
-    currencyOptions(){
-        return cy.get(registrationAccount.currencyOptions)
+    NTDcurrencyOptions(){
+        return cy.get(registrationAccount.NTDcurrencyOptions)
+    }
+    USDcurrencyOptions(){
+        return cy.get(registrationAccount.USDcurrencyOptions)
     }
     //Basic Information droplist
     listTextBase() {
@@ -174,35 +177,112 @@ class RegitrationAccountObject {
     organizationType() {
         return cy.get(registrationAccount.organizationType)
     }
+    organizationType_Companies() {
+        return cy.get(registrationAccount.organizationType_Companies)
+    }
+    organizationType_Universities() {
+        return cy.get(registrationAccount.organizationType_Universities)
+    } organizationType_GovernmentAgencies() {
+        return cy.get(registrationAccount.organizationType_GovernmentAgencies)
+    }
+    organizationType_Hospitals() {
+        return cy.get(registrationAccount.organizationType_Hospitals)
+    }
+    organizationType_NGOs() {
+        return cy.get(registrationAccount.organizationType_NGOs)
+    }
+    organizationType_Others() {
+        return cy.get(registrationAccount.organizationType_Others)
+    }
 
     sizeOfOperation() {
         return cy.get(registrationAccount.sizeOfOperation)
+    }
+    SizeOfOperation_LargeEnterprise() {
+        return cy.get(registrationAccount.SizeOfOperation_LargeEnterprise)
+    }
+    sizeOfOperation_SmallAndMedium() {
+        return cy.get(registrationAccount.sizeOfOperation_SmallAndMedium)
+    }
+    sizeOfOperation_MultinationalEnterprise() {
+        return cy.get(registrationAccount.sizeOfOperation_MultinationalEnterprise)
     }
 
     industry() {
         return cy.get(registrationAccount.industry)
     }
 
+    industry_Agriculture() {
+        return cy.get(registrationAccount.industry_Agriculture)
+    }
+    industry_MiningAndEarth() {
+        return cy.get(registrationAccount.industry_MiningAndEarth)
+    }
+    industry_TraditionalManufacturing() {
+        return cy.get(registrationAccount.industry_TraditionalManufacturing)
+    }
+    industry_ElectronicComponentManufacturing() {
+        return cy.get(registrationAccount.industry_ElectronicComponentManufacturing)
+    }
+    industry_Computer() {
+        return cy.get(registrationAccount.industry_Computer)
+    }
+    industry_ElectricityAndGas() {
+        return cy.get(registrationAccount.industry_ElectricityAndGas)
+    }
+    industry_WaterSupply() {
+        return cy.get(registrationAccount.industry_WaterSupply)
+    }
+    industry_ConstructionIndustry() {
+        return cy.get(registrationAccount.industry_ConstructionIndustry)
+    }
+    industry_WholesaleAndRetail() {
+        return cy.get(registrationAccount.industry_WholesaleAndRetail)
+    }
+    industry_TransportationAndWarehouse() {
+        return cy.get(registrationAccount.industry_TransportationAndWarehouse)
+    }
     GRICategory() {
         return cy.get(registrationAccount.GRICategory)
     }
-    selectItemOptions(){
-        return cy.get(registrationAccount.selectItemOptions)
+    GRICategory_Agriculture() {
+        return cy.get(registrationAccount.GRICategory_Agriculture)
     }
-    selectOrganizationType(){
-        return registrationAccountObject.selectItemOptions().eq(0)
+    GRICategory_Automotive() {
+        return cy.get(registrationAccount.GRICategory_Automotive)
     }
-    selectSizeOfOperation(){
-        return registrationAccountObject.selectItemOptions().eq(7)
+    GRICategory_Aviation() {
+        return cy.get(registrationAccount.GRICategory_Aviation)
     }
-    selectIndustry(){
-        return registrationAccountObject.selectItemOptions().eq(15)
+    GRICategory_Chemicals() {
+        return cy.get(registrationAccount.GRICategory_Chemicals)
     }
-    selectGRICategory(){
-        return registrationAccountObject.selectItemOptions().eq(24)
+    GRICategory_CommercialServices() {
+        return cy.get(registrationAccount.GRICategory_CommercialServices)
+    }
+    GRICategory_Computers() {
+        return cy.get(registrationAccount.GRICategory_Computers)
+    }
+    GRICategory_Conglomerates() {
+        return cy.get(registrationAccount.GRICategory_Conglomerates)
+    }
+    GRICategory_Construction() {
+        return cy.get(registrationAccount.GRICategory_Construction)
+    }
+    GRICategory_ConstructionMaterials() {
+        return cy.get(registrationAccount.GRICategory_ConstructionMaterials)
+    }
+    GRICategory_ConsumerDurables() {
+        return cy.get(registrationAccount.GRICategory_ConsumerDurables)
     }
     capitalization1() {
         return cy.get(registrationAccount.capitalization1)
+    }
+    NTDCurrencyCapitalization1(){
+        return registrationAccountObject.NTDcurrencyOptions().eq(0)
+    }
+    USDCurrencyCapitalization1(){
+        return registrationAccountObject.USDcurrencyOptions().eq(0)
     }
     capitalization2() {
         return cy.get(registrationAccount.capitalization2)
@@ -276,10 +356,10 @@ class RegitrationAccountObject {
         return cy.get(registrationAccount.revenueGovernmentBudgetDroplist)
     }
     NTDCurrencyRevenueGovernmentBudget(){
-        return registrationAccountObject.currencyOptions().eq(0)
+        return registrationAccountObject.NTDcurrencyOptions().eq(1)
     }
     USDCurrencyRevenueGovernmentBudget(){
-        return registrationAccountObject.currencyOptions().eq(1)
+        return registrationAccountObject.USDcurrencyOptions().eq(1)
     }
     revenueGovernmentBudgetRevenues() {
         return cy.get(registrationAccount.revenueGovernmentBudgetRevenues)
@@ -289,10 +369,10 @@ class RegitrationAccountObject {
         return cy.get(registrationAccount.globalRevenueDroplist)
     }
     NTDCurrencyGlobalRevenue(){
-        return registrationAccountObject.currencyOptions().eq(2)
+        return registrationAccountObject.NTDcurrencyOptions().eq(2)
     }
     USDCurrencyGlobalRevenue(){
-        return registrationAccountObject.currencyOptions().eq(3)
+        return registrationAccountObject.USDCurrencyCapitalization1().eq(2)
     }
     globalRevenueGlobal() {
         return cy.get(registrationAccount.globalRevenueGlobal)
@@ -302,10 +382,10 @@ class RegitrationAccountObject {
         return cy.get(registrationAccount.enterpriseIncomeTaxDroplist)
     }
     NTDCurrencyEnterpriseIncomeTax(){
-        return registrationAccountObject.currencyOptions().eq(4)
+        return registrationAccountObject.NTDcurrencyOptions().eq(3)
     }
     USDCurrencyEnterpriseIncomeTax(){
-        return registrationAccountObject.currencyOptions().eq(5)
+        return registrationAccountObject.USDcurrencyOptions().eq(3)
     }
     enterpriseIncomeTax() {
         return cy.get(registrationAccount.enterpriseIncomeTax)
@@ -315,10 +395,10 @@ class RegitrationAccountObject {
         return cy.get(registrationAccount.taiwanMarketValueDroplist)
     }
     NTDCurrencyTaiwanMarketValue(){
-        return registrationAccountObject.currencyOptions().eq(6)
+        return registrationAccountObject.NTDcurrencyOptions().eq(4)
     }
     USDCurrencyTaiwanMarketValue(){
-        return registrationAccountObject.currencyOptions().eq(7)
+        return registrationAccountObject.USDcurrencyOptions().eq(4)
     }
 
     taiwanMarketValueMarket() {
@@ -329,10 +409,10 @@ class RegitrationAccountObject {
         return cy.get(registrationAccount.EPSValueDroplist)
     }
     NTDCurrencyEPSValue(){
-        return registrationAccountObject.currencyOptions().eq(8)
+        return registrationAccountObject.NTDcurrencyOptions().eq(5)
     }
     USDCurrencyEPSValue(){
-        return registrationAccountObject.currencyOptions().eq(9)
+        return registrationAccountObject.USDcurrencyOptions().eq(5)
     }
 
     EPSValueEPS() {
@@ -359,10 +439,10 @@ class RegitrationAccountObject {
         return cy.get(registrationAccount.currentYearFirstSeasonEPSDroplist)
     }
     NTDCurrencyCurrentYearFirstSeasonEPS(){
-        return registrationAccountObject.currencyOptions().eq(10)
+        return registrationAccountObject.NTDcurrencyOptions().eq(6)
     }
     USDCurrencyCurrentEYearFirstSeasonEPS(){
-        return registrationAccountObject.currencyOptions().eq(11)
+        return registrationAccountObject.USDcurrencyOptions().eq(6)
     }
     currentYearFirstSeasonEPSFirst() {
         return cy.get(registrationAccount.currentYearFirstSeasonEPSFirst)
@@ -372,25 +452,23 @@ class RegitrationAccountObject {
         return cy.get(registrationAccount.currentYearSecondSeasonEPSDroplist)
     }
     NTDCurrencyCurrentYearSecondSeasonEPS(){
-        return registrationAccountObject.currencyOptions().eq(12)
+        return registrationAccountObject.NTDcurrencyOptions().eq(7)
     }
     USDCurrencyCurrentYearSecondSeasonEPS(){
-        return registrationAccountObject.currencyOptions().eq(13)
+        return registrationAccountObject.USDcurrencyOptions().eq(7)
     }
     currentYearSecondSeasonEPSSeason() {
         return cy.get(registrationAccount.currentYearSecondSeasonEPSSeason)
     }
 
-    radioTaiwan() {
-        return cy.get(registrationAccount.radioEntityNationalityTaiwan).eq(1)
-    }
-
-    radioForeign() {
-        return cy.get(registrationAccount.radioEntityNationalityForeign).eq(1)
-    }
-
     iAgreeCheckbox() {
         return cy.get(registrationAccount.iAgreeCheckbox)
+    }
+    affiliatedEntityName() {
+        return cy.get(registrationAccount.affiliatedEntityName)
+    }
+    affiliatedEntityEditor() {
+        return cy.get(registrationAccount.affiliatedEntityEditor)
     }
 
     completeBtn() {
