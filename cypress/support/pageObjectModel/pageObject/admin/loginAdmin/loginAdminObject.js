@@ -13,10 +13,6 @@ class LoginAdminObject {
         return cy.get(login.codeVerify)
     }
 
-    enterVerificationCode() {
-        return cy.get(login.enterVerificationCode)
-    }
-
     loginBtn() {
         return cy.get(login.loginBtn)
     }
@@ -30,10 +26,23 @@ class LoginAdminObject {
     }
 
     getVerifyCode() {
-        // updating ...
-        return actualCode;
+        return  cy.get(login.getVerifyCode)
+
+    }
+    enterVerificationCode() {
+        return cy.get(login.enterVerificationCode)
+    }
+    loginAdmin(acct, password) {
+        loginAdminObject.languageModeEng().click()
+        loginAdminObject.accountInput().type(acct)
+        loginAdminObject.passwordInput().type(password)
+        loginAdminObject.codeVerify().click()
+        loginAdminObject.getVerifyCode().invoke('text').then((text) => {
+            loginAdminObject.enterVerificationCode().type(text)
+        })
+        loginAdminObject.loginBtn().click()
     }
 }
 
-const login = new LoginAdminObject();
-export default login;
+const loginAdminObject = new LoginAdminObject();
+export default loginAdminObject;

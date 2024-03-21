@@ -1,5 +1,5 @@
 import registrationAccountObject
-    from "../support/pageObjectModel/pageObject/competition/registraionAccount/regitrationAccountObject";
+    from "../../support/pageObjectModel/pageObject/competition/registraionAccount/regitrationAccountObject";
 
 const organizationLogoFile = '../fixtures/competition/registrationAcctData/organizationLogoImage.jpg';
 const registrationCertificateFile = '../fixtures/competition/registrationAcctData/registrationCertificate.pdf'

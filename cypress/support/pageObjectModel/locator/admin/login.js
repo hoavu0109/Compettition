@@ -5,6 +5,7 @@ class Login {
     enterVerificationCode = 'input[placeholder="Enter Verification Code"]'
     loginBtn ='button[type="submit"]'
     languageMode ='.flex.justify-start.items-end.pb-5>div>a'
+    getVerifyCode ='.text-xl.cursor-default'
 }
 const login = new Login();
 export default login;
