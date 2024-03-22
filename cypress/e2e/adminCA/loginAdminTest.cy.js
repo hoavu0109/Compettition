@@ -10,11 +10,11 @@ describe('login Admin', () => {
         index++
     })
 
-    it.only('login Admin', () => {
-        loginAdminObject.loginAdmin(accInfo.acct, accInfo.password)
+    it.only('Check login Admin with valid data ' , () => {
+        loginAdminObject.loginAdmin(accInfo.acct, accInfo.pas)
     })
 
-    it.only('login user', () => {
-        loginAdminObject.loginAdmin(accInfo.acct, accInfo.password)
+    it.only('Check login Admin with invalid data  ',() => {
+        loginAdminObject.loginAdmin(accInfo.acct, accInfo.pas)
     })
 })

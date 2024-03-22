@@ -1,30 +1,116 @@
 [
   {
-    "name": "test1",
-    "data_test": {
-      "email": "abc@gmail.com",
-      "organization_type": [
-        "company",
-        "universities",
-        "hospital"
-      ],
-      "address": "this is a address"
-    }
+    "AbbreviationPart1": "全家便利商店",
+    "AbbreviationPart2": "FamilyMart",
+    "LegalEntity": "全家便利商店股份有限公司",
+    "CorporateName": "Taiwan FamilyMart Co. Ltd.",
+    "ManagingDirector1": "全家便利商店",
+    "ManagingDirector2": "全家便利商店",
+    "AddressPostCode1": "10446",
+    "Address1": "10446",
+    "AddressPostCode2": "10446",
+    "Address2": "10446",
+
+    "ContactDivision": "公共事務暨品牌溝通室",
+    "Designation": "品牌溝通課經理",
+    "ContactPerson1": "謝宜臻",
+    "ContactPerson2": "Kira Hsieh",
+    "Phone": "(02)1234-5678#123",
+    "MailingAddress1": "10446",
+    "MailingAddress2": "臺北市中山區中山北路2段61號7樓",
+
+    "yearIncorporated": "1988",
+    "Stock": "5903",
+    "capitalization2": "22.322",
+    "chairmanOfTheBoard1": "葉榮廷",
+    "chairmanOfTheBoar2": "Jung Ting Yeh",
+    "generalManagerName1": "薛東都",
+    "generalManagerName2": "Tung Tu Hsueh",
+    "employeeDistributionMale": "2481",
+    "employeeDistributionFemale": "2374",
+    "fullTimeEmployees": "2952",
+    "partTimeEmployees": "1903",
+    "employeesWithDisabilities": "71",
+    "organizationOfficialWebsite": ".com",
+    "corporateCSRWebsite1": ".com",
+    "taiwanCorporateWebsite": ".com",
+    "corporateCSRWebsite2": ".com",
+    "companyDescriptionChina": "全家便利商店秉全家便利商店秉全家便利商店秉",
+    "companyDescriptionEnglish": "Based on our business philosophy of putting our customers",
+
+    "revenueGovernmentBudgetRevenues": "74",
+    "globalRevenueGlobal": "222",
+    "enterpriseIncomeTax": "135",
+    "taiwanMarketValueMarket": "222",
+    "EPSValueEPS": "8.3",
+    "foreignOwnershipRatioPercent": "50",
+    "annualCSRReportTitlesChinese": "全家便利商店2019年企業社會責任報告書",
+    "annualCSRReportTitlesEnglish": "無",
+    "supplementaryExplanationRevenue": "無 無 無",
+    "currentYearFirstSeasonEPSFirst": "1.43",
+    "currentYearSecondSeasonEPSSeason": "0",
+    "affiliatedEntityName": "Group Name Test",
+    "affiliatedEntityEditor": "Group Editor Test"
+
+
+  },
+  {
+    "AbbreviationPart1": "全家便利商店",
+    "AbbreviationPart2": "FamilyMart",
+    "LegalEntity": "全家便利商店股份有限公司",
+    "CorporateName": "Taiwan FamilyMart Co. Ltd.",
+    "ManagingDirector1": "全家便利商店",
+    "ManagingDirector2": "全家便利商店",
+    "AddressPostCode1": "10446",
+    "Address1": "10446",
+    "AddressPostCode2": "10446",
+    "Address2": "10446",
+
+    "ContactDivision": "公共事務暨品牌溝通室",
+    "Designation": "品牌溝通課經理",
+    "ContactPerson1": "謝宜臻",
+    "ContactPerson2": "Kira Hsieh",
+    "Phone": "(02)1234-5678#123",
+    "MailingAddress1": "10446",
+    "MailingAddress2": "臺北市中山區中山北路2段61號7樓",
+
+    "yearIncorporated": "1988",
+    "Stock": "5903",
+    "capitalization2": "22.322",
+    "chairmanOfTheBoard1": "葉榮廷",
+    "chairmanOfTheBoar2": "Jung Ting Yeh",
+    "generalManagerName1": "薛東都",
+    "generalManagerName2": "Tung Tu Hsueh",
+    "employeeDistributionMale": "2481",
+    "employeeDistributionFemale": "2374",
+    "fullTimeEmployees": "2952",
+    "partTimeEmployees": "1903",
+    "employeesWithDisabilities": "71",
+    "organizationOfficialWebsite": ".com",
+    "corporateCSRWebsite1": ".com",
+    "taiwanCorporateWebsite": ".com",
+    "corporateCSRWebsite2": ".com",
+    "companyDescriptionChina": "全家便利商店秉全家便利商店秉全家便利商店秉",
+    "companyDescriptionEnglish": "Based on our business philosophy of putting our customers",
+
+    "revenueGovernmentBudgetRevenues": "74",
+    "globalRevenueGlobal": "222",
+    "enterpriseIncomeTax": "135",
+    "taiwanMarketValueMarket": "222",
+    "EPSValueEPS": "8.3",
+    "foreignOwnershipRatioPercent": "50",
+    "annualCSRReportTitlesChinese": "全家便利商店2019年企業社會責任報告書",
+    "annualCSRReportTitlesEnglish": "無",
+    "supplementaryExplanationRevenue": "無 無 無",
+    "currentYearFirstSeasonEPSFirst": "1.43",
+    "currentYearSecondSeasonEPSSeason": "0",
+    "affiliatedEntityName": "Group Name Test",
+    "affiliatedEntityEditor": "Group Editor Test"
+
+
   },
   {
     "name": "test2",
-    "data_test": {
-      "email": "abc@gmail.com",
-      "organization_type": [
-        "company",
-        "universities",
-        "hospital"
-      ],
-      "address": "this is a address"
-    }
-  },
-  {
-    "name": "test3",
     "data_test": {
       "email": "abc@gmail.com",
       "organization_type": [

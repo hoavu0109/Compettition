@@ -1,5 +1,5 @@
 // 88809912/Admin123
-class Login {
+class LoginCALocator {
     accountInput = '#account'
     passwordInput = '#password'
     codeVerify = '.text-xl.cursor-default'
@@ -7,5 +7,5 @@ class Login {
     loginBtn = 'button[type="submit"]'
     signUpBtn = 'button[type="button"]'
 }
-const login = Login();
-export default login;
+const loginCALocator = LoginCALocator();
+export default loginCALocator;

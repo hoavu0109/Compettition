@@ -1,10 +1,12 @@
 [
   {
+    "description": "valid data",
     "acct": "hoa.vu",
-    "password": "Admin123"
+    "pas": "Admin123"
   },
   {
+    "description": "invalid data",
     "acct": "hoa.vu1",
-    "password": "Admin1234"
+    "pas": "Admin1234"
   }
 ]

@@ -1,8 +1,5 @@
 class CompetitionAreaTab {
-    competitionArea = '[data-menu-id="rc-menu-uuid-82674-3-webContent"]'
-    businessTab = '[data-menu-id="rc-menu-uuid-82674-3-business-list"]'
-    emailSearch ='input[placeholder="Enter Uniform number, Company title, email, etc."]'
-    registrationStatus = '.ant-table-cell>span'
+    competitionArea = '.ant-menu-overflow-item.ant-menu-submenu.ant-menu-submenu-horizontal'
 
 }
 const competitionAreaTab = new CompetitionAreaTab();
