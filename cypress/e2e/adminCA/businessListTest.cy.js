@@ -1,34 +1,31 @@
 import loginAdminObject from "../../support/pageObjectModel/pageObject/admin/loginAdmin/loginAdminObject";
 import accountLogin from "../../fixtures/admin/accountLogin.json"
 import businessListObject from "../../support/pageObjectModel/pageObject/admin/businessList/businessListObject";
-
-describe('Check Business List',()=>{
-   beforeEach(()=>{
-       cy.visit('http://admin.tcsa-local.site')
-       loginAdminObject.loginAdmin(accountLogin[0].acct,accountLogin[0].pas)
-   })
-    it.only('check display all data',()=>{
+import commonAdminObject from "../../support/pageObjectModel/pageObject/admin/commonAdminObject";
+import loginCAObject from "../../support/pageObjectModel/pageObject/competition/loginCAObject";
+import {baseUrl_Admin} from "../../../cypress.config";
+describe('Check Business List', () => {
+    beforeEach(() => {
+        loginAdminObject.loginAdmin(accountLogin[0].acct, accountLogin[0].pas)
+    })
+    it.only('check display all data', () => {
         //verify data
 
-        // // admin aproved registrion acct from company
-        // businessListObject.editCompanyDataBtn(0).click()
-        // cy.wait(1000)
-        // businessListObject.reviewStatusDroplist().click( {force: true})
-        // businessListObject.reviewStatus_Approved().click( {force: true})
-        // businessListObject.saveReviewBtn().click()
-        //
-        // //reset password
-        // businessListObject.changePasswordCompanyDataBtn(0).click()
-        // businessListObject.password().type('Admin123')
-        // businessListObject.passwordConfirmation().type('Admin123')
-        // businessListObject.confirmChangePasswordBtn().click()
 
-        // login again into CA
-        businessListObject.IdData(0).then((id)=>{
-            cy.log('id',id)
-            // update function login from CA
+        commonAdminObject.competitionArea()
+        businessListObject.businessTab().click({force: true})
 
+        //search data
+        businessListObject.searchFunction('cuong.nguyenmanh+99@eastgate-software.com')
 
-        })
+        // check that the result is only one data
+        businessListObject.numberOfData().should('have.lengthOf',1)
+
+        // admin aproved registrion acct from company
+        businessListObject.approvedRegistrationForm(0)
+
+        //reset password for the company have acct submit by admin
+        businessListObject.resetPasswordCompany('Admin123')
+
     })
 })

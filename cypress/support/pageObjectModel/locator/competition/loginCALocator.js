@@ -1,5 +1,6 @@
-// 88809912/Admin123
+
 class LoginCALocator {
+    // 88809912/Admin123
     accountInput = '#account'
     passwordInput = '#password'
     codeVerify = '.text-xl.cursor-default'
@@ -7,5 +8,5 @@ class LoginCALocator {
     loginBtn = 'button[type="submit"]'
     signUpBtn = 'button[type="button"]'
 }
-const loginCALocator = LoginCALocator();
+const loginCALocator = new LoginCALocator();
 export default loginCALocator;

@@ -1,4 +1,5 @@
 import businessListTab from "../../../locator/admin/businessListTab";
+import commonAdminObject from "../commonAdminObject";
 class BusinessListObject{
     businessTab(){
         return cy.get(businessListTab.businessTab).eq(1)
@@ -6,19 +7,16 @@ class BusinessListObject{
     emailSearch(){
         return cy.get(businessListTab.emailSearch)
     }
-    searchBtn(){
-        return cy.get(businessListTab.searchAndClearBtn).eq(0)
-    }
-    clearBtn(){
-        return cy.get(businessListTab.searchAndClearBtn).eq(1)
-    }
     rowOfData(row_index){
         return cy.get(businessListTab.rowOfData).eq(row_index)
+    }
+    numberOfData(){
+        return cy.get(businessListTab.rowOfData)
     }
     async IdData(row_index){
         let id;
         id = await businessListObject.rowOfData(row_index).find('td').eq(0).invoke('text')
-        return id.trim();
+        return id;
 
     }
     companyNameData(row_index){
@@ -78,8 +76,25 @@ class BusinessListObject{
     }
     searchFunction(search_value){
         businessListObject.emailSearch().type(search_value)
-        businessListObject.searchBtn().click()
+        commonAdminObject.searchBtn().click()
+        cy.wait(1000)
     }
+    // admin aproved registrion acct from company
+    approvedRegistrationForm(index_Company){
+        businessListObject.editCompanyDataBtn(index_Company).click({force: true})
+        cy.wait(1000)
+        businessListObject.reviewStatusDroplist().click( {force: true})
+        businessListObject.reviewStatus_Approved().click( {force: true})
+        businessListObject.saveReviewBtn().click()
+    }
+    //reset password for the company have acct submit by admin
+    resetPasswordCompany(Password_Reset){
+        businessListObject.changePasswordCompanyDataBtn(0).click()
+        businessListObject.password().type(Password_Reset)
+        businessListObject.passwordConfirmation().type(Password_Reset)
+        businessListObject.confirmChangePasswordBtn().click()
+    }
+
 }
 const businessListObject = new BusinessListObject();
 export  default businessListObject

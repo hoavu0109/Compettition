@@ -1,4 +1,5 @@
 import login from '../../../locator/admin/login.js'
+import {baseUrl_Admin} from "../../../../../../cypress.config";
 
 class LoginAdminObject {
     accountInput() {
@@ -33,7 +34,8 @@ class LoginAdminObject {
         return cy.get(login.enterVerificationCode)
     }
     loginAdmin(acct, password) {
-        loginAdminObject.languageModeEng().click()
+        cy.visit(baseUrl_Admin)
+        loginAdminObject.languageModeEng().wait(500).click()
         loginAdminObject.accountInput().type(acct)
         loginAdminObject.passwordInput().type(password)
         loginAdminObject.codeVerify().click()

@@ -1,7 +1,6 @@
 class BusinessListTab{
     businessTab = '.ant-menu-item.ant-menu-item-only-child'
     emailSearch ='input[placeholder="Enter Uniform number, Company title, email, etc."]'
-    searchAndClearBtn ='.items-center .ant-btn.css-10gg4to.ant-btn-default'
     rowOfData ='.ant-table-row.ant-table-row-level-0'
 
     //Edit Participated Company

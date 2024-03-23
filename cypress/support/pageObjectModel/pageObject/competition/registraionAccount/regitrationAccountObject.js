@@ -1,7 +1,7 @@
 import registrationAccount from "../../../locator/competition/regitrationAccount";
 import loginAdminObject from "../../admin/loginAdmin/loginAdminObject";
-import competitionAreaObject from "../../admin/competitionArea/competitionAreaObject";
 import businessListObject from "../../admin/businessList/businessListObject";
+import {baseUrl_CA} from "../../../../../../cypress.config";
 
 const organizationLogoFile = '../fixtures/competition/registrationAcctData/organizationLogoImage.jpg';
 const registrationCertificateFile = '../fixtures/competition/registrationAcctData/registrationCertificate.pdf'
@@ -573,6 +573,7 @@ class RegitrationAccountObject {
                             taiwanMarketValueMarket, EPSValueEPS, foreignOwnershipRatioPercent, annualCSRReportTitlesChinese,
                             annualCSRReportTitlesEnglish, supplementaryExplanationRevenue, currentYearFirstSeasonEPSFirst,
                             currentYearSecondSeasonEPSSeason, affiliatedEntityName, affiliatedEntityEditor) {
+        cy.visit(baseUrl_CA)
         registrationAccountObject.signUpBtn().click()
 
         // Input and verify data into registration screen

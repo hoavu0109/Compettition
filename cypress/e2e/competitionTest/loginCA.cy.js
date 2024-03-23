@@ -1,15 +1,10 @@
 import loginCAObject from "../../support/pageObjectModel/pageObject/competition/loginCAObject";
+import {baseUrl_CA} from "../../../cypress.config";
 
 describe('login CA function',()=>{
-    before(()=>{
-        cy.visit('http://competition.tcsa-local.site/login')
-    })
+    // before(()=>{
+    // })
     it.only('login CA function ',()=>{
-        loginCAObject.accountInput().type('88809912')
-        loginCAObject.passwordInput().type('Admin123')
-        loginCAObject.codeVerify().invoke('text').then((code)=>{
-            loginCAObject.enterVerificationCode().type(code)
-        })
-        loginCAObject.loginBtn().click()
+        loginCAObject.loginCAFunction('88809912','Admin123')
     })
 })

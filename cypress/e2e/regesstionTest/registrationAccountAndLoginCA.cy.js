@@ -4,20 +4,22 @@ import registrationAcct from "../../fixtures/competition/registrationAcctData/re
 import loginAdminObject from "../../support/pageObjectModel/pageObject/admin/loginAdmin/loginAdminObject";
 import accountLogin from "../../fixtures/admin/accountLogin.json"
 import businessListObject from "../../support/pageObjectModel/pageObject/admin/businessList/businessListObject";
-import competitionAreaObject
-    from "../../support/pageObjectModel/pageObject/admin/competitionArea/competitionAreaObject";
+import commonAdminObject from "../../support/pageObjectModel/pageObject/admin/commonAdminObject";
+import {baseUrl_CA} from "../../../cypress.config";
+
 describe('Check registration account follow', () => {
     let index = 0;
     let regisAcct;
     let accInfo;
     beforeEach(() => {
-        cy.visit('http://competition.tcsa-local.site/login')
         //map data input for each test
         regisAcct = registrationAcct[index]
         accInfo = accountLogin[index]
         index++;
     })
-    it('input value into regitration account', () => {
+    it('Registration acct -Fill all fields - Use new acct to login CA system', () => {
+
+        // Step1: Fill registration acct form  at CA site
         registrationAccountObject.registrationAccFunction(regisAcct.AbbreviationPart1, regisAcct.AbbreviationPart2, regisAcct.LegalEntity, regisAcct.CorporateName,
             regisAcct.ManagingDirector1, regisAcct.ManagingDirector2, regisAcct.AddressPostCode1, regisAcct.Address1, regisAcct.AddressPostCode2, regisAcct.Address2,
             regisAcct.ContactDivision, regisAcct.Designation, regisAcct.ContactPerson1, regisAcct.ContactPerson2, regisAcct.Phone, regisAcct.MailingAddress1, regisAcct.MailingAddress2,
@@ -30,20 +32,31 @@ describe('Check registration account follow', () => {
             regisAcct.annualCSRReportTitlesEnglish, regisAcct.supplementaryExplanationRevenue, regisAcct.currentYearFirstSeasonEPSFirst,
             regisAcct.currentYearSecondSeasonEPSSeason, regisAcct.affiliatedEntityName, regisAcct.affiliatedEntityEditor)
 
-        registrationAccountObject.enterEmail().invoke('val').then((email)=>{
-            cy.log("email----------",email)
+        //Step2: Admin submit acct regitrtion form
+        registrationAccountObject.enterEmail().invoke('val').then((email) => {
             registrationAccountObject.completeBtn().click()
-
-            // Go to admin system to check the new acct of the company
-            cy.visit('http://admin.tcsa-local.site/')
+            // login Admin system -> go to Business list tab to find the record include email value
             loginAdminObject.loginAdmin(accInfo.acct, accInfo.pas)
-            competitionAreaObject.competitionArea().trigger('mouseover')
+            commonAdminObject.competitionArea().trigger('mouseover')
+            businessListObject.businessTab().click({force: true})
+            //search main email of the company registration
+            businessListObject.searchFunction('cuong.nguyenmanh+99@eastgate-software.com')
+            // check that the result is only one data
+            businessListObject.numberOfData().should('have.lengthOf',1)
+            // admin approved registration acct from company
+            businessListObject.approvedRegistrationForm(0)
 
-            businessListObject.businessTab().click({force:true})
-            businessListObject.searchFunction(email)
+            //reset password for the company have acct submit by admin
+            businessListObject.resetPasswordCompany('Admin123')
+
+            // Step3: login again into CA
+            businessListObject.IdData(0).then((id) => {
+                loginCAObject.loginCAFunction(id,'Admin123')
+            })
+
         })
-
+    })
+    it('Registration acct -Only fill Mandatory fields - Use new acct to login CA system',()=>{
 
     })
-
 })

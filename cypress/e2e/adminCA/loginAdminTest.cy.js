@@ -5,7 +5,6 @@ describe('login Admin', () => {
     let accInfo;
     let index = 0;
     beforeEach(() => {
-        cy.visit('http://admin.tcsa-local.site/')
         accInfo = accountLogin[index]
         index++
     })
@@ -14,7 +13,7 @@ describe('login Admin', () => {
         loginAdminObject.loginAdmin(accInfo.acct, accInfo.pas)
     })
 
-    it.only('Check login Admin with invalid data  ',() => {
+    it('Check login Admin with invalid data  ',() => {
         loginAdminObject.loginAdmin(accInfo.acct, accInfo.pas)
     })
 })
