@@ -15,30 +15,10 @@ describe("Check Entry Company Management ", () => {
             // companyEntryManagementObject.reviewingStatus().click()
         })
         commonAdminObject.searchBtn().click()
-        commonAdminObject.paginationData().then((pageElements) => {
-            cy.log('tesst----', pageElements.length)
-            for (let i = 0; i < pageElements.length; i++) {
-                //click page have index is i
-                commonAdminObject.paginationData().eq(i).click()
-                //get list data in page i
-                companyEntryManagementObject.idCompanyLength().then((size) => {
-                    for (let j = 0; j < size; j++) {
-                        cy.log(companyEntryManagementObject.idCompanyValue(j))
-                        // search id Company
-                        companyEntryManagementObject.idCompanyValue(j).then(text => {
-                            if (text == '00000007') {
-                                // click icon edit => click edit icon have index is j
-                                companyEntryManagementObject.editCompanyDataBtn(j).click()
-                                cy.log('test------------', text)
-                            }
-                        })
-
-
-                    }
-                })
-
-            }
-        })
-
+        companyEntryManagementObject.findId_EntryCompanyManagement('34552211')
+        // approved registration award
+        companyEntryManagementObject.registrationStatusDroplist().click({force: true})
+        companyEntryManagementObject.registration_ApprovedStatus().click()
+        // companyEntryManagementObject.saveEditStatusBtn().click({force:true})
     })
 })
