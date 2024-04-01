@@ -4,7 +4,7 @@ class RegistrationAccount {
     basicInformationForm = '#basic'
     groupRegistrationAcctName = '.ant-collapse-header-text'
     arrowViewIcon = '.anticon.anticon-right.ant-collapse-arrow'
-    NTDcurrencyOptions = '.ant-select-item.ant-select-item-option[title="NTD"]'
+    NTDcurrencyOptions = '.ant-select-item.ant-select-item-option.ant-select-item-option-active[title="NTD"]'
     USDcurrencyOptions = '.ant-select-item.ant-select-item-option[title="USD"]'
 
     listTextBase = '.title.text-base.font-normal'
@@ -119,6 +119,7 @@ class RegistrationAccount {
     currentYearFirstSeasonEPSFirst = '#basic_currentYearFirstSeasonEPSFormInput2'
     currentYearSecondSeasonEPSDroplist = '#basic_currentYearSecondSeasonEPSFormInput1'
     currentYearSecondSeasonEPSSeason = '#basic_currentYearSecondSeasonEPSFormInput2'
+    affiliatedEntityCheckBox ='#basic_affiliated_entity'
     affiliatedEntityName = '#basic_affiliated_entity_name'
     affiliatedEntityEditor = '#basic_affiliated_entity_editor'
     iAgreeCheckbox = '.ant-checkbox-input[type="checkbox"]'

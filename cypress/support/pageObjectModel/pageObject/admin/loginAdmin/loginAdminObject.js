@@ -19,11 +19,11 @@ class LoginAdminObject {
     }
 
     languageModeEng() {
-        return cy.get(login.languageMode).eq(0)
+        return cy.get(login.languageModeEng)
     }
 
     languageModeTaiwan() {
-        return cy.get(login.languageMode).eq(1)
+        return cy.get(login.languageModeTaiwan)
     }
 
     getVerifyCode() {

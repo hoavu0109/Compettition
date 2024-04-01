@@ -5,6 +5,7 @@ import loginAdminObject from "../../support/pageObjectModel/pageObject/admin/log
 import accountLogin from "../../fixtures/admin/accountLogin.json"
 import businessListObject from "../../support/pageObjectModel/pageObject/admin/businessList/businessListObject";
 import commonAdminObject from "../../support/pageObjectModel/pageObject/admin/commonAdminObject";
+import loginCAObject from "../../support/pageObjectModel/pageObject/competition/loginCAObject";
 import {baseUrl_CA} from "../../../cypress.config";
 
 describe('Check registration account follow', () => {
@@ -33,14 +34,14 @@ describe('Check registration account follow', () => {
             regisAcct.currentYearSecondSeasonEPSSeason, regisAcct.affiliatedEntityName, regisAcct.affiliatedEntityEditor)
 
         //Step2: Admin submit acct regitrtion form
-        registrationAccountObject.enterEmail().invoke('val').then((email) => {
+        registrationAccountObject.enterCorporateCode().invoke('val').then((corporateCode) => {
             registrationAccountObject.completeBtn().click()
             // login Admin system -> go to Business list tab to find the record include email value
             loginAdminObject.loginAdmin(accInfo.acct, accInfo.pas)
             commonAdminObject.competitionArea().trigger('mouseover')
             businessListObject.businessTab().click({force: true})
             //search main email of the company registration
-            businessListObject.searchFunction('cuong.nguyenmanh+99@eastgate-software.com')
+            businessListObject.searchFunction(corporateCode)
             // check that the result is only one data
             businessListObject.numberOfData().should('have.lengthOf',1)
             // admin approved registration acct from company
@@ -50,9 +51,10 @@ describe('Check registration account follow', () => {
             businessListObject.resetPasswordCompany('Admin123')
 
             // Step3: login again into CA
-            businessListObject.IdData(0).then((id) => {
-                loginCAObject.loginCAFunction(id,'Admin123')
-            })
+            loginCAObject.loginCAFunction(corporateCode,'Admin123')
+            // businessListObject.IdData(0).then((id) => {
+            //     loginCAObject.loginCAFunction(id,'Admin123')
+            // })
 
         })
     })
