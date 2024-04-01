@@ -17,6 +17,9 @@ class RegitrationAccountObject {
     registerHeader() {
         return cy.get(registrationAccount.registerHeader)
     }
+    englishMode(){
+        return registrationAccountObject.registerHeader().eq(0)
+    }
 
     basicInformationForm() {
         return cy.get(registrationAccount.basicInformationForm)
@@ -116,8 +119,14 @@ class RegitrationAccountObject {
         return cy.get(registrationAccount.enterContactPerson2)
     }
 
-    enterPhone() {
-        return cy.get(registrationAccount.enterPhone)
+    enterPhoneCountry() {
+        return cy.get(registrationAccount.enterPhoneCountry)
+    }
+    enterPhoneNumber() {
+        return cy.get(registrationAccount.enterPhoneNumber)
+    }
+    enterPhoneExtension() {
+        return cy.get(registrationAccount.enterPhoneExtension)
     }
 
     enterFax() {
@@ -184,6 +193,9 @@ class RegitrationAccountObject {
     yearIncorporated() {
         return cy.get(registrationAccount.yearIncorporated)
     }
+    headquartersEstablishmentYear() {
+        return cy.get(registrationAccount.headquartersEstablishmentYear)
+    }
 
     listingSituation_ListedPublicly() {
         return cy.get(registrationAccount.listingSituation_ListedPublicly)
@@ -243,6 +255,9 @@ class RegitrationAccountObject {
 
     sizeOfOperation_MultinationalEnterprise() {
         return cy.get(registrationAccount.sizeOfOperation_MultinationalEnterprise)
+    }
+    mainMethodsOfOperating(){
+        return cy.get(registrationAccount.mainMethodsOfOperating)
     }
 
     industry() {
@@ -563,9 +578,9 @@ class RegitrationAccountObject {
     }
 
     registrationAccFunction(AbbreviationPart1, AbbreviationPart2, LegalEntity, CorporateName, ManagingDirector1,
-                            ManagingDirector2, AddressPostCode1, Address1, AddressPostCode2, Address2, ContactDivision,
-                            Designation, ContactPerson1, ContactPerson2, Phone, MailingAddress1, MailingAddress2,
-                            yearIncorporated, Stock, capitalization2, chairmanOfTheBoard1, chairmanOfTheBoar2,
+                            AddressPostCode1, Address1, AddressPostCode2, ContactDivision,
+                            Designation, ContactPerson1, ContactPerson2, PhoneCountry,PhoneNumber,PhonExtension,MailingAddress1, MailingAddress2,
+                            yearIncorporated,EstablishmentYear, Stock, capitalization2, chairmanOfTheBoard1, chairmanOfTheBoar2,
                             generalManagerName1, generalManagerName2, employeeDistributionMale, employeeDistributionFemale,
                             fullTimeEmployees, partTimeEmployees, employeesWithDisabilities, organizationOfficialWebsite,
                             corporateCSRWebsite1, taiwanCorporateWebsite, corporateCSRWebsite2, companyDescriptionChina,
@@ -574,6 +589,7 @@ class RegitrationAccountObject {
                             annualCSRReportTitlesEnglish, supplementaryExplanationRevenue, currentYearFirstSeasonEPSFirst,
                             currentYearSecondSeasonEPSSeason, affiliatedEntityName, affiliatedEntityEditor) {
         cy.visit(baseUrl_CA)
+        registrationAccountObject.englishMode().click()
         registrationAccountObject.signUpBtn().click()
 
         // Input and verify data into registration screen
@@ -581,89 +597,94 @@ class RegitrationAccountObject {
         registrationAccountObject.basicInformationForm().should('exist')
 
         //Basic Information
-        registrationAccountObject.registrationCertificateFieldTitle().contains(registrationAccount.registrationCertificate)
-        registrationAccountObject.uploadFileBtnBasicInfo().click().then(() => {
-            const registrationCertificateInput = registrationAccountObject.businessRegistrationCertificate()
-            registrationCertificateInput.attachFile(registrationCertificateFile)
-        })
-        registrationAccountObject.enterAbbreviationParticipating1().type(AbbreviationPart1)
-        registrationAccountObject.enterAbbreviationParticipating2().type(AbbreviationPart2)
-        registrationAccountObject.enterLegalEntity().type(LegalEntity)
-        registrationAccountObject.enterCorporateName().type(CorporateName)
-        registrationAccountObject.enterCorporateCode().type(corporateCodeRandom)
-        registrationAccountObject.enterManagingDirector1().type(ManagingDirector1)
-        registrationAccountObject.enterManagingDirector2().type(ManagingDirector2)
-        registrationAccountObject.enterAddressPostCode1().type(AddressPostCode1)
-        registrationAccountObject.enterAddress1().type(Address1)
-        registrationAccountObject.enterAddressPostCode2().type(AddressPostCode2)
-        registrationAccountObject.enterAddress2().type(Address2)
-        registrationAccountObject.arrowViewIconBasicInfo().click()
+        // registrationAccountObject.registrationCertificateFieldTitle().contains(registrationAccount.registrationCertificate)
+        // registrationAccountObject.uploadFileBtnBasicInfo().click().then(() => {
+        //     const registrationCertificateInput = registrationAccountObject.businessRegistrationCertificate()
+        //     registrationCertificateInput.attachFile(registrationCertificateFile)
+        // })
+        // registrationAccountObject.enterAbbreviationParticipating1().type(AbbreviationPart1)
+        // registrationAccountObject.enterAbbreviationParticipating2().type(AbbreviationPart2)
+        // registrationAccountObject.enterLegalEntity().type(LegalEntity)
+        // registrationAccountObject.enterCorporateName().type(CorporateName)
+        // registrationAccountObject.enterCorporateCode().type(corporateCodeRandom)
+        // registrationAccountObject.enterManagingDirector1().type(ManagingDirector1)
+        // // registrationAccountObject.enterManagingDirector2().type(ManagingDirector2)
+        // registrationAccountObject.enterAddressPostCode1().type(AddressPostCode1)
+        // registrationAccountObject.enterAddress1().type(Address1)
+        // registrationAccountObject.enterAddressPostCode2().type(AddressPostCode2)
+        // // registrationAccountObject.enterAddress2().type(Address2)
+        // registrationAccountObject.arrowViewIconBasicInfo().click()
 
         //contact person
-        registrationAccountObject.enterContactDivision().type(ContactDivision)
-        registrationAccountObject.enterDesignation().type(Designation)
-        registrationAccountObject.enterContactPerson1().type(ContactPerson1)
-        registrationAccountObject.enterContactPerson2().type(ContactPerson2)
-        registrationAccountObject.enterPhone().type(Phone)
-        registrationAccountObject.enterFax().type('(02)1234-5678')
-        registrationAccountObject.enterMailingAddress1().type(MailingAddress1)
-        registrationAccountObject.enterMailingAddress2().type(MailingAddress2)
-        registrationAccountObject.enterEmail().type('AutomationTest' + randomNumbers + '@yopmail.com')
-        registrationAccountObject.enterCopyEmail1().type('AutomationTest' + randomNumbers + '@yopmail.com')
-        registrationAccountObject.enterCopyEmail2().type('AutomationTest' + randomNumbers + '@yopmail.com')
-        registrationAccountObject.arrowViewIconContactPerson().click()
+        // registrationAccountObject.enterContactDivision().type(ContactDivision)
+        // registrationAccountObject.enterDesignation().type(Designation)
+        // registrationAccountObject.enterContactPerson1().type(ContactPerson1)
+        // registrationAccountObject.enterContactPerson2().type(ContactPerson2)
+        // registrationAccountObject.enterPhoneCountry().type(PhoneCountry)
+        // registrationAccountObject.enterPhoneNumber().type(PhoneNumber)
+        // registrationAccountObject.enterPhoneExtension().type(PhonExtension)
+        //
+        // // registrationAccountObject.enterFax().type('(02)1234-5678')
+        // registrationAccountObject.enterMailingAddress1().type(MailingAddress1)
+        // registrationAccountObject.enterMailingAddress2().type(MailingAddress2)
+        // registrationAccountObject.enterEmail().type('AutomationTest' + randomNumbers + '@yopmail.com')
+        // registrationAccountObject.enterCopyEmail1().type('AutomationTest' + randomNumbers + '@yopmail.com')
+        // registrationAccountObject.enterCopyEmail2().type('AutomationTest' + randomNumbers + '@yopmail.com')
+        // registrationAccountObject.arrowViewIconContactPerson().click()
 
-        //Unit Information
-        registrationAccountObject.uploadFileBtnUnitInfo().click().then(() => {
-            const orgUploadFileInput = registrationAccountObject.orgImageFileInput();
-            orgUploadFileInput.attachFile(organizationLogoFile)
-        })
-        registrationAccountObject.radioEntityNationalityTaiwan().click()
-        registrationAccountObject.radioEntityNationalityForeign().click()
-        registrationAccountObject.radioEntityNationalityForeignOptions().click()
-        registrationAccountObject.radioEntityNationalityForeignOptions().click()
-        registrationAccountObject.radioEntityNationalityForeignOptionsValue().eq(1).click()
-        registrationAccountObject.radioWhetherPublishReportYes().click()
-        registrationAccountObject.radioWhetherPublishReportNo().click()
-        registrationAccountObject.yearIncorporated().type(yearIncorporated)
-        registrationAccountObject.listingSituation_ListedPublicly().click()
-        registrationAccountObject.listingSituation_OTC().click()
-        registrationAccountObject.listingSituation_NotListed().click()
-        registrationAccountObject.enterStock().type(Stock)
-        registrationAccountObject.organizationType().click().then(() => {
-            registrationAccountObject.organizationType_Companies().click({force: true})
-        })
-
-        registrationAccountObject.sizeOfOperation().click().then(() => {
-            registrationAccountObject.sizeOfOperation_SmallAndMedium().click({force: true})
-
-        })
-        registrationAccountObject.industry().click().then(() => {
-            registrationAccountObject.industry_Agriculture().click({force: true})
-        })
-
-        registrationAccountObject.GRICategory().click().then(() => {
-            registrationAccountObject.GRICategory_Automotive().click({force: true})
-        })
-        registrationAccountObject.capitalization1().click()
-        registrationAccountObject.NTDCurrencyCapitalization1().click({force: true})
-        registrationAccountObject.capitalization2().type(capitalization2)
-        registrationAccountObject.chairmanOfTheBoard1().type(chairmanOfTheBoard1)
-        registrationAccountObject.chairmanOfTheBoar2().type(chairmanOfTheBoar2)
-        registrationAccountObject.generalManagerName1().type(generalManagerName1)
-        registrationAccountObject.generalManagerName2().type(generalManagerName2)
-        registrationAccountObject.employeeDistributionMale().type(employeeDistributionMale)
-        registrationAccountObject.employeeDistributionFemale().type(employeeDistributionFemale)
-        registrationAccountObject.fullTimeEmployees().type(fullTimeEmployees)
-        registrationAccountObject.partTimeEmployees().type(partTimeEmployees)
-        registrationAccountObject.employeesWithDisabilities().type(employeesWithDisabilities)
-        registrationAccountObject.organizationOfficialWebsite().type(organizationOfficialWebsite)
-        registrationAccountObject.corporateCSRWebsite1().type(corporateCSRWebsite1)
-        registrationAccountObject.taiwanCorporateWebsite().type(taiwanCorporateWebsite)
-        registrationAccountObject.corporateCSRWebsite2().type(corporateCSRWebsite2)
-        registrationAccountObject.companyDescriptionChina().type(companyDescriptionChina)
-        registrationAccountObject.companyDescriptionEnglish().type(companyDescriptionEnglish)
-        registrationAccountObject.arrowViewIconUnitInfo().click()
+        // //Unit Information
+        // registrationAccountObject.uploadFileBtnUnitInfo().click().then(() => {
+        //     const orgUploadFileInput = registrationAccountObject.orgImageFileInput();
+        //     orgUploadFileInput.attachFile(organizationLogoFile)
+        // })
+        // registrationAccountObject.radioEntityNationalityTaiwan().click()
+        // registrationAccountObject.radioEntityNationalityForeign().click()
+        // registrationAccountObject.radioEntityNationalityForeignOptions().click()
+        // registrationAccountObject.radioEntityNationalityForeignOptions().click()
+        // registrationAccountObject.radioEntityNationalityForeignOptionsValue().eq(1).click()
+        // registrationAccountObject.radioWhetherPublishReportYes().click()
+        // registrationAccountObject.radioWhetherPublishReportNo().click()
+        // registrationAccountObject.yearIncorporated().type(yearIncorporated)
+        // registrationAccountObject.headquartersEstablishmentYear().type(EstablishmentYear)
+        // registrationAccountObject.listingSituation_ListedPublicly().click()
+        // registrationAccountObject.listingSituation_OTC().click()
+        // registrationAccountObject.listingSituation_NotListed().click()
+        // registrationAccountObject.enterStock().type(Stock)
+        // registrationAccountObject.organizationType().click().then(() => {
+        //     registrationAccountObject.organizationType_Companies().click({force: true})
+        // })
+        //
+        // // registrationAccountObject.sizeOfOperation().click().then(() => {
+        // //     registrationAccountObject.sizeOfOperation_SmallAndMedium().click({force: true})
+        // //
+        // // })
+        // registrationAccountObject.mainMethodsOfOperating().click()
+        // registrationAccountObject.industry().click().then(() => {
+        //     registrationAccountObject.industry_Agriculture().click({force: true})
+        // })
+        //
+        // registrationAccountObject.GRICategory().click().then(() => {
+        //     registrationAccountObject.GRICategory_Automotive().click({force: true})
+        // })
+        // registrationAccountObject.capitalization1().click()
+        // registrationAccountObject.NTDCurrencyCapitalization1().click({force: true})
+        // registrationAccountObject.capitalization2().type(capitalization2)
+        // registrationAccountObject.chairmanOfTheBoard1().type(chairmanOfTheBoard1)
+        // registrationAccountObject.chairmanOfTheBoar2().type(chairmanOfTheBoar2)
+        // registrationAccountObject.generalManagerName1().type(generalManagerName1)
+        // registrationAccountObject.generalManagerName2().type(generalManagerName2)
+        // registrationAccountObject.employeeDistributionMale().type(employeeDistributionMale)
+        // registrationAccountObject.employeeDistributionFemale().type(employeeDistributionFemale)
+        // registrationAccountObject.fullTimeEmployees().type(fullTimeEmployees)
+        // registrationAccountObject.partTimeEmployees().type(partTimeEmployees)
+        // registrationAccountObject.employeesWithDisabilities().type(employeesWithDisabilities)
+        // registrationAccountObject.organizationOfficialWebsite().type(organizationOfficialWebsite)
+        // registrationAccountObject.corporateCSRWebsite1().type(corporateCSRWebsite1)
+        // registrationAccountObject.taiwanCorporateWebsite().type(taiwanCorporateWebsite)
+        // registrationAccountObject.corporateCSRWebsite2().type(corporateCSRWebsite2)
+        // registrationAccountObject.companyDescriptionChina().type(companyDescriptionChina)
+        // registrationAccountObject.companyDescriptionEnglish().type(companyDescriptionEnglish)
+        // registrationAccountObject.arrowViewIconUnitInfo().click()
 
         //Unit Financials
         registrationAccountObject.revenueGovernmentBudgetDroplist().click()
