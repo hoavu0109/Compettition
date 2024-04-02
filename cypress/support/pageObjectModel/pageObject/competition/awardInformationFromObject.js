@@ -8,13 +8,15 @@ class AwardInformationFromObject{
     }
     priceAwardList(){
         return cy.get(awardInformationFrom.priceAwardList).then((arrayPrice)=>{
+
             let totalPrice = 0;
             for (let i = 0; i <arrayPrice.length ; i++) {
-                cy.log('phat tu thu i ',arrayPrice[i])
-                // totalPrice = totalPrice+ parseFloat(arrayPrice[i].replace(/,/g,''))
+                let priceAward = cy.get(arrayPrice[i]).invoke('text').replace(/,/g, '')
+                cy.log('phat tu thu i ',priceAward)
+
+                // totalPrice = totalPrice + parseFloat(priceAward.replace(/,/g,''))
+                // cy.log('totalPricessssssss',totalPrice)
             }
-
-
             return totalPrice;
         })
     }
