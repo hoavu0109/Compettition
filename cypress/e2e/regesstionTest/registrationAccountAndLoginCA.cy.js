@@ -7,6 +7,8 @@ import businessListObject from "../../support/pageObjectModel/pageObject/admin/b
 import commonAdminObject from "../../support/pageObjectModel/pageObject/admin/commonAdminObject";
 import loginCAObject from "../../support/pageObjectModel/pageObject/competition/loginCAObject";
 import {baseUrl_CA} from "../../../cypress.config";
+import awardInformationFromObject
+    from "../../support/pageObjectModel/pageObject/competition/awardInformationFromObject";
 
 describe('Check registration account follow', () => {
     let index = 0;
@@ -48,13 +50,15 @@ describe('Check registration account follow', () => {
             businessListObject.approvedRegistrationForm(0)
 
             //reset password for the company have acct submit by admin
-            businessListObject.resetPasswordCompany('Admin123')
+            // businessListObject.resetPasswordCompany('Admin123')
 
             // Step3: login again into CA
-            loginCAObject.loginCAFunction(corporateCode,'Admin123')
+            loginCAObject.loginCAFunction(corporateCode,corporateCode)
             // businessListObject.IdData(0).then((id) => {
             //     loginCAObject.loginCAFunction(id,'Admin123')
             // })
+            //submit award information form
+            awardInformationFromObject.submitAwardInformationForm()
 
         })
     })
