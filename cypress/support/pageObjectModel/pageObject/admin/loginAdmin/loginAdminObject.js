@@ -35,7 +35,8 @@ class LoginAdminObject {
     }
     loginAdmin(acct, password) {
         cy.visit(baseUrl_Admin)
-        loginAdminObject.languageModeEng().wait(500).click()
+        cy.wait(2000)
+        loginAdminObject.languageModeEng().click()
         loginAdminObject.accountInput().type(acct)
         loginAdminObject.passwordInput().type(password)
         loginAdminObject.codeVerify().click()

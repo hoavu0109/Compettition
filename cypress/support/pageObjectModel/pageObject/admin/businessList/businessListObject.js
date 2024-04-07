@@ -75,6 +75,7 @@ class BusinessListObject{
         return cy.get(businessListTab.confirmChangePasswordBtn)
     }
     searchFunction(search_value){
+        cy.wait(5000)
         businessListObject.emailSearch().type(search_value)
         commonAdminObject.searchBtn().click()
         cy.wait(1000)

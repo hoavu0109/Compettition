@@ -8,5 +8,6 @@ module.exports = {
       // implement node event listeners here
 
     },
+    testIsolation : false,
   },
 };

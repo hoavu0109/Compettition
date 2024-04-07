@@ -21,6 +21,8 @@ class LoginCAObject {
     }
     loginCAFunction(Id_Company, password){
         cy.visit(baseUrl_CA)
+        cy.clearLocalStorage()
+        // cy.getAllLocalStorage().should('be.empty')
         loginCAObject.accountInput().type(Id_Company)
         loginCAObject.passwordInput().type(password)
         loginCAObject.codeVerify().invoke('text').then((code)=>{
