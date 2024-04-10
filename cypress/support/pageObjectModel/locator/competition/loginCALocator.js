@@ -6,6 +6,7 @@ class LoginCALocator {
     codeVerify = '.text-xl.cursor-default'
     enterVerificationCode = '.ant-input.css-1fpjgd5.verification-code-input'
     loginBtn = 'button[type="submit"]'
+    messageLoginCASuccess ='.ant-notification-notice-message'
     signUpBtn = 'button[type="button"]'
 }
 const loginCALocator = new LoginCALocator();

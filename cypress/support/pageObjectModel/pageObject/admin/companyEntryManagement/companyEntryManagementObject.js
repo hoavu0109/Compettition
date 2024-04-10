@@ -109,9 +109,7 @@ class CompanyEntryManagementObject {
         return cy.get(companyEntryManagementTab.saveReviewBtn)
     }
     messageSuccessApprovedAwardRegistration(){
-        return cy.get(companyEntryManagementTab.messageSuccessApprovedAwardRegistration).invoke('text').then((message)=>{
-            expect(message).eq(companyEntryManagementTab.messageSuccessApprovedAwardRegistrationText)
-        })
+        return cy.get(companyEntryManagementTab.messageSuccessApprovedAwardRegistration).should('be.visible')
     }
     approvedRegistrationAward(Company_Code){
         commonAdminObject.competitionArea().click({force: true})

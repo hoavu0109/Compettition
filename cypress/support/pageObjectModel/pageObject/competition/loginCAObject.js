@@ -16,11 +16,15 @@ class LoginCAObject {
     loginBtn(){
         return cy.get(loginCALocator.loginBtn)
     }
+    messageLoginCASuccess(){
+        return cy.get(loginCALocator.messageLoginCASuccess).should('be.visible')
+    }
     signUpBtn(){
         return cy.get(loginCALocator.signUpBtn)
     }
     loginCAFunction(Id_Company, password){
-        cy.visit(baseUrl_CA).wait(1000)
+        cy.visit(baseUrl_CA)
+        cy.viewport(1280, 720)
         cy.clearLocalStorage()
         // cy.getAllLocalStorage().should('be.empty')
         loginCAObject.accountInput().type(Id_Company)
@@ -28,7 +32,9 @@ class LoginCAObject {
         loginCAObject.codeVerify().invoke('text').then((code)=>{
             loginCAObject.enterVerificationCode().type(code)
         })
-        loginCAObject.loginBtn().click()
+        loginCAObject.loginBtn().click().then(()=>{
+            loginCAObject.messageLoginCASuccess()
+        })
     }
 }
 const loginCAObject = new LoginCAObject();

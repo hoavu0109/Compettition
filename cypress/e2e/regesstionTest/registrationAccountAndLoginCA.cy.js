@@ -35,14 +35,14 @@ describe('Check registration account follow', () => {
             })
             // login Admin system -> go to Business list tab to find the record include email value
             loginAdminObject.loginAdmin(accInfo.acct, accInfo.pas)
-            commonAdminObject.competitionArea().trigger('mouseover')
-            businessListObject.businessTab().click({force: true})
+            commonAdminObject.competitionArea()
+            businessListObject.businessTab()
             //search main email of the company registration
             businessListObject.searchFunction(corporateCode)
             // check that the result is only one data
             businessListObject.numberOfData().should('have.lengthOf',1)
             // admin approved registration acct from company
-            businessListObject.approvedRegistrationForm(0)
+            businessListObject.approvedRegistrationForm()
 
             //reset password for the company have acct submit by admin
             // businessListObject.resetPasswordCompany('Admin123')

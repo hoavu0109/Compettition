@@ -10,7 +10,7 @@ describe("Check Entry Company Management ", () => {
     })
     it('check Entry Company Management', () => {
         // approved registration award
-        companyEntryManagementObject.approvedRegistrationAward('15707611')
+        companyEntryManagementObject.approvedRegistrationAward('92055559')
         // companyEntryManagementObject.findId_EntryCompanyManagement('90473743')
 
     })

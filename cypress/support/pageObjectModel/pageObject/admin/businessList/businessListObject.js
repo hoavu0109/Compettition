@@ -2,7 +2,7 @@ import businessListTab from "../../../locator/admin/businessListTab";
 import commonAdminObject from "../commonAdminObject";
 class BusinessListObject{
     businessTab(){
-        return cy.get(businessListTab.businessTab).eq(1)
+        return cy.get(businessListTab.businessTab).eq(1).click({force: true})
     }
     emailSearch(){
         return cy.get(businessListTab.emailSearch)
@@ -63,6 +63,9 @@ class BusinessListObject{
     saveReviewBtn(){
         return cy.get(businessListTab.saveReviewBtn)
     }
+    messageSuccessApprovedAcct(){
+        return cy.get(businessListTab.messageSuccessApprovedAcct).should('be.visible')
+    }
 
     //change password
     password(){
@@ -74,6 +77,9 @@ class BusinessListObject{
     confirmChangePasswordBtn(){
         return cy.get(businessListTab.confirmChangePasswordBtn)
     }
+    messageSuccessPassWordUpdate(){
+        return cy.get(businessListTab.messageSuccessPassWordUpdate).should('be.visible')
+    }
     searchFunction(search_value){
         cy.wait(500)
         businessListObject.emailSearch().type(search_value,{force: true} )
@@ -81,19 +87,23 @@ class BusinessListObject{
         cy.wait(1000)
     }
     // admin aproved registrion acct from company
-    approvedRegistrationForm(index_Company){
-        businessListObject.editCompanyDataBtn(index_Company).click({force: true})
+    approvedRegistrationForm(){
+        businessListObject.editCompanyDataBtn(0).click({force: true})
         cy.wait(1000)
         businessListObject.reviewStatusDroplist().click( {force: true})
         businessListObject.reviewStatus_Approved().click( {force: true})
-        businessListObject.saveReviewBtn().click({force: true})
+        businessListObject.saveReviewBtn().click({force: true}).then(()=>{
+            businessListObject.messageSuccessApprovedAcct()
+        })
     }
     //reset password for the company have acct submit by admin
     resetPasswordCompany(Password_Reset){
         businessListObject.changePasswordCompanyDataBtn(0).click()
         businessListObject.password().type(Password_Reset)
         businessListObject.passwordConfirmation().type(Password_Reset)
-        businessListObject.confirmChangePasswordBtn().click()
+        businessListObject.confirmChangePasswordBtn().click().then(()=>{
+            businessListObject.messageSuccessPassWordUpdate()
+        })
     }
 
 }

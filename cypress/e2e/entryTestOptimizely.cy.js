@@ -1,3 +1,7 @@
+import registrationAccount from "../support/pageObjectModel/locator/competition/regitrationAccount";
+import registrationAccountObject
+    from "../support/pageObjectModel/pageObject/competition/registraionAccount/regitrationAccountObject";
+
 describe('Search function by name in a tree', () => {
     beforeEach(() => {
         // Visit the page with the tree component

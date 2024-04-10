@@ -6,7 +6,7 @@ class CommonAdminObject{
         return  cy.get(commonAdmin.menuHeader).wait(1000).eq(0).trigger('mouseover')
     }
     competitionArea(){
-        return  cy.get(commonAdmin.menuHeader).wait(500).eq(1).trigger('mouseover')
+        return  cy.get(commonAdmin.menuHeader).eq(1).trigger('mouseover')
     }
     monitoring(){
         return  cy.get(commonAdmin.menuHeader).wait(1000).eq(1).trigger('mouseover')

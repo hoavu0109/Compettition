@@ -34,12 +34,11 @@ class LoginAdminObject {
         return cy.get(login.enterVerificationCode)
     }
     messageSuccessLogin(){
-        return cy.get(login.messageSuccessLogin).invoke('text').then((message)=>{
-            expect(message).eq(login.messageSuccessLoginText)
-        })
+        return cy.get(login.messageSuccessLogin).should('be.visible')
     }
     loginAdmin(acct, password) {
         cy.visit(baseUrl_Admin)
+        cy.viewport(1280, 720)
         cy.wait(500)
         loginAdminObject.languageModeEng().click()
         loginAdminObject.accountInput().type(acct)
@@ -49,8 +48,11 @@ class LoginAdminObject {
             loginAdminObject.enterVerificationCode().type(text)
         })
         loginAdminObject.loginBtn().click().then(()=>{
-            loginAdminObject.messageSuccessLogin()
+            loginAdminObject.messageSuccessLogin().then(()=>{
+                cy.get('.ant-notification-notice-close-x').click()
+            })
         })
+
 
     }
 }

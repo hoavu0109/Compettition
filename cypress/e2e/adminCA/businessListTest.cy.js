@@ -11,9 +11,11 @@ describe('Check Business List', () => {
     it.only('check display all data', () => {
         //verify data
 
+        cy.wait(2000)
+        commonAdminObject.competitionArea().then(()=>{
+            businessListObject.businessTab().click({force: true})
+        })
 
-        commonAdminObject.competitionArea()
-        businessListObject.businessTab().click({force: true})
 
         //search data
         businessListObject.searchFunction('cuong.nguyenmanh+99@eastgate-software.com')
@@ -22,7 +24,7 @@ describe('Check Business List', () => {
         businessListObject.numberOfData().should('have.lengthOf',1)
 
         // admin aproved registrion acct from company
-        businessListObject.approvedRegistrationForm(0)
+        businessListObject.approvedRegistrationForm()
 
         //reset password for the company have acct submit by admin
         businessListObject.resetPasswordCompany('Admin123')
