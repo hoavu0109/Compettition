@@ -22,6 +22,14 @@ class CompanyEntryManagementTab{
     saveEditStatusBtn = 'button[form="editStatusForm"]'
     administratorNote ='editStatusFormBasic_admin_note'
 
+    rowOfData ='.ant-table-row.ant-table-row-level-0'
+    //Approve Pregistration award Company
+    reviewStatusDroplist ="#editStatusFormBasic_status"
+    reviewStatusOptions=".ant-select-item-option-content"
+    saveReviewBtn = 'button[form="editStatusForm"]'
+    messageSuccessApprovedAwardRegistration ='.ant-notification-notice-message'
+    messageSuccessApprovedAwardRegistrationText ='Successful'
+
 
 
 }

@@ -33,9 +33,14 @@ class LoginAdminObject {
     enterVerificationCode() {
         return cy.get(login.enterVerificationCode)
     }
+    messageSuccessLogin(){
+        return cy.get(login.messageSuccessLogin).invoke('text').then((message)=>{
+            expect(message).eq(login.messageSuccessLoginText)
+        })
+    }
     loginAdmin(acct, password) {
         cy.visit(baseUrl_Admin)
-        cy.wait(2000)
+        cy.wait(500)
         loginAdminObject.languageModeEng().click()
         loginAdminObject.accountInput().type(acct)
         loginAdminObject.passwordInput().type(password)
@@ -43,7 +48,10 @@ class LoginAdminObject {
         loginAdminObject.getVerifyCode().invoke('text').then((text) => {
             loginAdminObject.enterVerificationCode().type(text)
         })
-        loginAdminObject.loginBtn().click()
+        loginAdminObject.loginBtn().click().then(()=>{
+            loginAdminObject.messageSuccessLogin()
+        })
+
     }
 }
 

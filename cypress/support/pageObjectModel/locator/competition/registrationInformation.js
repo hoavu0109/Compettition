@@ -50,7 +50,8 @@ class RegistrationInformation{
     checkbox2 = '//*[@id="basic_revocation-statement"]//input[@class="ant-checkbox-input"]'
     saveAsDraftBtn ='button[type="button"]'
     submitBtn = 'button[type="submit"]'
-    OKConfirmBtn ='button[type="button"]'
+    OKConfirmBtn ='.ant-modal-confirm-btns > button[type="button"]'
+    messageSuccessRegistrationInformation ='.ant-notification-notice-content'
 
 
 }

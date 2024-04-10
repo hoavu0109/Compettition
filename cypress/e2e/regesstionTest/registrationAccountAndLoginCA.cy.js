@@ -11,6 +11,8 @@ import awardInformationFromObject
     from "../../support/pageObjectModel/pageObject/competition/awardInformationFromObject";
 import registrationInformationObject
     from "../../support/pageObjectModel/pageObject/competition/registrationInformationObject";
+import companyEntryManagementObject
+    from "../../support/pageObjectModel/pageObject/admin/companyEntryManagement/companyEntryManagementObject";
 describe('Check registration account follow', () => {
     let index = 0;
     let regisAcct;
@@ -28,7 +30,9 @@ describe('Check registration account follow', () => {
 
         //Step2: Admin submit acct regitrtion form
         registrationAccountObject.enterCorporateCode().invoke('val').then((corporateCode) => {
-            registrationAccountObject.completeBtn().click()
+            registrationAccountObject.completeBtn().click().then(()=>{
+                registrationAccountObject. messageSuccess()
+            })
             // login Admin system -> go to Business list tab to find the record include email value
             loginAdminObject.loginAdmin(accInfo.acct, accInfo.pas)
             commonAdminObject.competitionArea().trigger('mouseover')
@@ -52,7 +56,7 @@ describe('Check registration account follow', () => {
             registrationInformationObject.registrationInformationSubmitFunction()
             // go to Admin to approve Awrad registration
             loginAdminObject.loginAdmin(accInfo.acct, accInfo.pas)
-            businessListObject.approvedRegistrationForm(0)
+            companyEntryManagementObject.approvedRegistrationAward(corporateCode)
 
         })
     })

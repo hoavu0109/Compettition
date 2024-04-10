@@ -12,8 +12,10 @@ describe('Check registration account follow', () => {
         index++;
     })
     it('input value into regitration account', () => {
-        cy.log("áasdasdasdasdasdasdasd: ", regisAcct.AddressPostCode1)
         registrationAccountObject.registrationAccFunction(regisAcct)
+        registrationAccountObject.completeBtn().click().then(()=>{
+            registrationAccountObject. messageSuccess()
+        })
     })
 
 })

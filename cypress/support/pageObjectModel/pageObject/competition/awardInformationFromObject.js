@@ -45,6 +45,9 @@ class AwardInformationFromObject {
     okConformBtn(){
         return cy.get(awardInformationFrom.okConformBtn)
     }
+    messageSuccessRegistrationInformation(){
+        return cy.get(awardInformationFrom.messageSuccessRegistrationInformation)
+    }
     submitAwardInformationForm(){
         awardInformationFromObject.awardInformation().click()
         awardInformationFromObject.totalAmountValue().then((defaultAmount) => { // total amount field default value
@@ -58,7 +61,9 @@ class AwardInformationFromObject {
         })
         // click submit award Information form
         awardInformationFromObject.submitBtn().click()
-        awardInformationFromObject.okConformBtn().click()
+        awardInformationFromObject.okConformBtn().click().then(()=>{
+            awardInformationFromObject.messageSuccessRegistrationInformation().should('be.visible')
+        })
     }
 }
 

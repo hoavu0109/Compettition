@@ -20,7 +20,7 @@ class LoginCAObject {
         return cy.get(loginCALocator.signUpBtn)
     }
     loginCAFunction(Id_Company, password){
-        cy.visit(baseUrl_CA)
+        cy.visit(baseUrl_CA).wait(1000)
         cy.clearLocalStorage()
         // cy.getAllLocalStorage().should('be.empty')
         loginCAObject.accountInput().type(Id_Company)

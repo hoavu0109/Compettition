@@ -4,7 +4,7 @@ import loginCAObject from "../../support/pageObjectModel/pageObject/competition/
 
 describe('Check Award Information Form', () => {
     beforeEach(() => {
-        loginCAObject.loginCAFunction('44190227', '44190227')
+        loginCAObject.loginCAFunction('64986595', '64986595')
     })
     it('check submit award information form', () => {
         // check price, submit award information form

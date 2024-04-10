@@ -6,6 +6,7 @@ class AwardInformationFrom {
     totalAmountValue = '.text-base.ml-1'
     submitBtn= 'button[type="submit"]'
     okConformBtn = '.ant-btn.css-1adbn6x.ant-btn-primary'
+    messageSuccessRegistrationInformation ='.ant-notification-notice-content'
 
 }
 const  awardInformationFrom = new AwardInformationFrom();

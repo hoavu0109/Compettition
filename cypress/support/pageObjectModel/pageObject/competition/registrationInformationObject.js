@@ -226,7 +226,11 @@ class RegistrationInformationObject {
         cy.get(registrationInformation.submitBtn).click()
     }
     OKConfirmBtn(){
-        cy.get(registrationInformation.OKConfirmBtn).eq(3).click()
+        // cy.get('')
+        return cy.get(registrationInformation.OKConfirmBtn).eq(1).click()
+    }
+    messageSuccessRegistrationInformation(){
+        return cy.get(registrationInformation.messageSuccessRegistrationInformation)
     }
     registrationInformationSaveDraftFunction(){
         registrationInformationObject.registrationInformationTab()
@@ -302,7 +306,10 @@ class RegistrationInformationObject {
         registrationInformationObject.checkbox1()
         registrationInformationObject.checkbox2()
         registrationInformationObject.submitBtn()
-        registrationInformationObject.OKConfirmBtn()
+        registrationInformationObject.OKConfirmBtn().then(()=>{
+            registrationInformationObject.messageSuccessRegistrationInformation().should('be.visible')
+        })
+
     }
 
 

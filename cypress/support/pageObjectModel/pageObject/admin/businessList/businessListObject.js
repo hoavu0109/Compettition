@@ -75,8 +75,8 @@ class BusinessListObject{
         return cy.get(businessListTab.confirmChangePasswordBtn)
     }
     searchFunction(search_value){
-        cy.wait(5000)
-        businessListObject.emailSearch().type(search_value)
+        cy.wait(500)
+        businessListObject.emailSearch().type(search_value,{force: true} )
         commonAdminObject.searchBtn().click()
         cy.wait(1000)
     }
@@ -86,7 +86,7 @@ class BusinessListObject{
         cy.wait(1000)
         businessListObject.reviewStatusDroplist().click( {force: true})
         businessListObject.reviewStatus_Approved().click( {force: true})
-        businessListObject.saveReviewBtn().click()
+        businessListObject.saveReviewBtn().click({force: true})
     }
     //reset password for the company have acct submit by admin
     resetPasswordCompany(Password_Reset){

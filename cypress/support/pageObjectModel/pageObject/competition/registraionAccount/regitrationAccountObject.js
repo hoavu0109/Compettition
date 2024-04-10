@@ -4,8 +4,9 @@ import businessListObject from "../../admin/businessList/businessListObject";
 import {baseUrl_CA} from "../../../../../../cypress.config";
 
 const organizationLogoFile = '../fixtures/competition/registrationAcctData/organizationLogoImage.jpg';
+const organizationLogoFileAIType = '../fixtures/competition/registrationAcctData/organizationLogoImage.ai';
 const registrationCertificateFile = '../fixtures/competition/registrationAcctData/registrationCertificate.pdf'
-const randomNumbers = Cypress._.random(0, 99);
+const randomNumbers = Cypress._.random(0, 999);
 const corporateCodeRandom = Cypress._.random(0, 99999999);
 
 class RegitrationAccountObject {
@@ -161,9 +162,15 @@ class RegitrationAccountObject {
     orgImageFileInput() {
         return cy.get(registrationAccount.orgImageFileInput)
     }
+    orgImageFileInputAIType() {
+        return cy.get(registrationAccount.orgImageFileInputAIType)
+    }
 
     uploadFileBtnUnitInfo() {
         return cy.get(registrationAccount.uploadFileBtn).eq(1)
+    }
+    uploadFileBtnUnitInfoAIType() {
+        return cy.get(registrationAccount.uploadFileBtn).eq(2)
     }
 
     radioEntityNationalityTaiwan() {
@@ -429,8 +436,23 @@ class RegitrationAccountObject {
     }
 
     //Unit Financials
-    revenueGovernmentBudgetDroplist() {
-        return cy.get(registrationAccount.revenueGovernmentBudgetDroplist)
+    yearBtn1(){
+        cy.get(registrationAccount.yearBtn).eq(0).click()
+    }
+    yearBtn2(){
+        cy.get(registrationAccount.yearBtn).eq(1).click()
+    }
+    yearBtn3(){
+        cy.get(registrationAccount.yearBtn).eq(2).click()
+    }
+    yearBtn4(){
+        cy.get(registrationAccount.yearBtn).eq(3).click()
+    }
+    yearBtn5(){
+        cy.get(registrationAccount.yearBtn).eq(4).click()
+    }
+    revenueGovernmentBudgetDroplist1() {
+        return cy.get(registrationAccount.revenueGovernmentBudgetDroplist1)
     }
 
     NTDCurrencyRevenueGovernmentBudget() {
@@ -441,12 +463,12 @@ class RegitrationAccountObject {
         return registrationAccountObject.USDcurrencyOptions().eq(1)
     }
 
-    revenueGovernmentBudgetRevenues() {
-        return cy.get(registrationAccount.revenueGovernmentBudgetRevenues)
+    revenueGovernmentBudgetRevenues1() {
+        return cy.get(registrationAccount.revenueGovernmentBudgetRevenues1)
     }
 
-    globalRevenueDroplist() {
-        return cy.get(registrationAccount.globalRevenueDroplist)
+    globalRevenueDroplist1() {
+        return cy.get(registrationAccount.globalRevenueDroplist1)
     }
 
     NTDCurrencyGlobalRevenue() {
@@ -457,12 +479,12 @@ class RegitrationAccountObject {
         return registrationAccountObject.USDCurrencyCapitalization1().eq(2)
     }
 
-    globalRevenueGlobal() {
-        return cy.get(registrationAccount.globalRevenueGlobal)
+    globalRevenueGlobal1() {
+        return cy.get(registrationAccount.globalRevenueGlobal1)
     }
 
-    enterpriseIncomeTaxDroplist() {
-        return cy.get(registrationAccount.enterpriseIncomeTaxDroplist)
+    enterpriseIncomeTaxDroplist1() {
+        return cy.get(registrationAccount.enterpriseIncomeTaxDroplist1)
     }
 
     NTDCurrencyEnterpriseIncomeTax() {
@@ -473,12 +495,12 @@ class RegitrationAccountObject {
         return registrationAccountObject.USDcurrencyOptions().eq(3)
     }
 
-    enterpriseIncomeTax() {
-        return cy.get(registrationAccount.enterpriseIncomeTax)
+    enterpriseIncomeTax1() {
+        return cy.get(registrationAccount.enterpriseIncomeTax1)
     }
 
-    taiwanMarketValueDroplist() {
-        return cy.get(registrationAccount.taiwanMarketValueDroplist)
+    taiwanMarketValueDroplist1() {
+        return cy.get(registrationAccount.taiwanMarketValueDroplist1)
     }
 
     NTDCurrencyTaiwanMarketValue() {
@@ -489,12 +511,12 @@ class RegitrationAccountObject {
         return registrationAccountObject.USDcurrencyOptions().eq(4)
     }
 
-    taiwanMarketValueMarket() {
-        return cy.get(registrationAccount.taiwanMarketValueMarket)
+    taiwanMarketValueMarket1() {
+        return cy.get(registrationAccount.taiwanMarketValueMarket1)
     }
 
-    EPSValueDroplist() {
-        return cy.get(registrationAccount.EPSValueDroplist)
+    EPSValueDroplist1() {
+        return cy.get(registrationAccount.EPSValueDroplist1)
     }
 
     NTDCurrencyEPSValue() {
@@ -505,20 +527,308 @@ class RegitrationAccountObject {
         return registrationAccountObject.USDcurrencyOptions().eq(5)
     }
 
-    EPSValueEPS() {
-        return cy.get(registrationAccount.EPSValueEPS)
+    EPSValueEPS1() {
+        return cy.get(registrationAccount.EPSValueEPS1)
     }
 
-    foreignOwnershipRatioPercent() {
-        return cy.get(registrationAccount.foreignOwnershipRatioPercent)
+    foreignOwnershipRatioPercent1() {
+        return cy.get(registrationAccount.foreignOwnershipRatioPercent1)
     }
 
-    annualCSRReportTitlesChinese() {
-        return cy.get(registrationAccount.annualCSRReportTitlesChinese)
+    annualCSRReportTitlesChinese1() {
+        return cy.get(registrationAccount.annualCSRReportTitlesChinese1)
     }
 
-    annualCSRReportTitlesEnglish() {
-        return cy.get(registrationAccount.annualCSRReportTitlesEnglish)
+    annualCSRReportTitlesEnglish1() {
+        return cy.get(registrationAccount.annualCSRReportTitlesEnglish1)
+    }
+    //year 2
+    revenueGovernmentBudgetDroplist2()
+    {
+        return cy.get(registrationAccount.revenueGovernmentBudgetDroplist2)
+    }
+    revenueGovernmentBudgetRevenues2()
+    {
+        return cy.get(registrationAccount.revenueGovernmentBudgetRevenues2)
+    }
+    NTDCurrencyRevenueGovernmentBudget2() {
+        return registrationAccountObject.NTDcurrencyOptions().eq(6)
+    }
+
+    globalRevenueDroplist2()
+    {
+        return cy.get(registrationAccount.globalRevenueDroplist2)
+    }
+    NTDCurrencyGlobalRevenue2() {
+        return registrationAccountObject.NTDcurrencyOptions().eq(7)
+    }
+    USDCurrencyGlobalRevenue2()
+    {
+        return registrationAccountObject.USDCurrencyCapitalization2().eq(7)
+    }
+    globalRevenueGlobal2()
+    {
+        return cy.get(registrationAccount.globalRevenueGlobal2)
+    }
+
+    enterpriseIncomeTaxDroplist2()
+    {
+        return cy.get(registrationAccount.enterpriseIncomeTaxDroplist2)
+    }
+    NTDCurrencyEnterpriseIncomeTax2() {
+        return registrationAccountObject.NTDcurrencyOptions().eq(8)
+    }
+    enterpriseIncomeTax2()
+    {
+        return cy.get(registrationAccount.enterpriseIncomeTax2)
+    }
+
+    taiwanMarketValueDroplist2()
+    {
+        return cy.get(registrationAccount.taiwanMarketValueDroplist2)
+    }
+    NTDCurrencyTaiwanMarketValue2() {
+        return registrationAccountObject.NTDcurrencyOptions().eq(9)
+    }
+    taiwanMarketValueMarket2() {
+        return cy.get(registrationAccount.taiwanMarketValueMarket2)
+    }
+
+    EPSValueDroplist2() {
+        return cy.get(registrationAccount.EPSValueDroplist2)
+    }
+    NTDCurrencyEPSValue2() {
+        return registrationAccountObject.NTDcurrencyOptions().eq(10)
+    }
+    EPSValueEPS2() {
+        return cy.get(registrationAccount.EPSValueEPS2)
+    }
+
+    foreignOwnershipRatioPercent2() {
+        return cy.get(registrationAccount.foreignOwnershipRatioPercent2)
+    }
+    annualCSRReportTitlesChinese2() {
+        return cy.get(registrationAccount.annualCSRReportTitlesChinese2)
+    }
+
+    annualCSRReportTitlesEnglish2() {
+        return cy.get(registrationAccount.annualCSRReportTitlesEnglish2)
+    }
+    //year 3
+    revenueGovernmentBudgetDroplist3()
+    {
+        return cy.get(registrationAccount.revenueGovernmentBudgetDroplist3)
+    }
+    revenueGovernmentBudgetRevenues3()
+    {
+        return cy.get(registrationAccount.revenueGovernmentBudgetRevenues3)
+    }
+    NTDCurrencyRevenueGovernmentBudget3() {
+        return registrationAccountObject.NTDcurrencyOptions().eq(11)
+    }
+
+    globalRevenueDroplist3()
+    {
+        return cy.get(registrationAccount.globalRevenueDroplist3)
+    }
+    NTDCurrencyGlobalRevenue3() {
+        return registrationAccountObject.NTDcurrencyOptions().eq(12)
+    }
+    USDCurrencyGlobalRevenue3()
+    {
+        return registrationAccountObject.USDCurrencyCapitalization3().eq(12)
+    }
+    globalRevenueGlobal3()
+    {
+        return cy.get(registrationAccount.globalRevenueGlobal3)
+    }
+
+    enterpriseIncomeTaxDroplist3()
+    {
+        return cy.get(registrationAccount.enterpriseIncomeTaxDroplist3)
+    }
+    NTDCurrencyEnterpriseIncomeTax3() {
+        return registrationAccountObject.NTDcurrencyOptions().eq(13)
+    }
+    enterpriseIncomeTax3()
+    {
+        return cy.get(registrationAccount.enterpriseIncomeTax3)
+    }
+
+    taiwanMarketValueDroplist3()
+    {
+        return cy.get(registrationAccount.taiwanMarketValueDroplist3)
+    }
+    NTDCurrencyTaiwanMarketValue3() {
+        return registrationAccountObject.NTDcurrencyOptions().eq(14)
+    }
+    taiwanMarketValueMarket3() {
+        return cy.get(registrationAccount.taiwanMarketValueMarket3)
+    }
+
+    EPSValueDroplist3() {
+        return cy.get(registrationAccount.EPSValueDroplist3)
+    }
+    NTDCurrencyEPSValue3() {
+        return registrationAccountObject.NTDcurrencyOptions().eq(15)
+    }
+    EPSValueEPS3() {
+        return cy.get(registrationAccount.EPSValueEPS3)
+    }
+
+    foreignOwnershipRatioPercent3() {
+        return cy.get(registrationAccount.foreignOwnershipRatioPercent3)
+    }
+    annualCSRReportTitlesChinese3() {
+        return cy.get(registrationAccount.annualCSRReportTitlesChinese3)
+    }
+
+    annualCSRReportTitlesEnglish3() {
+        return cy.get(registrationAccount.annualCSRReportTitlesEnglish3)
+    }
+    //year 4
+    revenueGovernmentBudgetDroplist4()
+    {
+        return cy.get(registrationAccount.revenueGovernmentBudgetDroplist4)
+    }
+    revenueGovernmentBudgetRevenues4()
+    {
+        return cy.get(registrationAccount.revenueGovernmentBudgetRevenues4)
+    }
+    NTDCurrencyRevenueGovernmentBudget4() {
+        return registrationAccountObject.NTDcurrencyOptions().eq(16)
+    }
+
+    globalRevenueDroplist4()
+    {
+        return cy.get(registrationAccount.globalRevenueDroplist4)
+    }
+    NTDCurrencyGlobalRevenue4() {
+        return registrationAccountObject.NTDcurrencyOptions().eq(17)
+    }
+    USDCurrencyGlobalRevenue4()
+    {
+        return registrationAccountObject.USDCurrencyCapitalization4().eq(17)
+    }
+    globalRevenueGlobal4()
+    {
+        return cy.get(registrationAccount.globalRevenueGlobal4)
+    }
+
+    enterpriseIncomeTaxDroplist4()
+    {
+        return cy.get(registrationAccount.enterpriseIncomeTaxDroplist4)
+    }
+    NTDCurrencyEnterpriseIncomeTax4() {
+        return registrationAccountObject.NTDcurrencyOptions().eq(18)
+    }
+    enterpriseIncomeTax4()
+    {
+        return cy.get(registrationAccount.enterpriseIncomeTax4)
+    }
+
+    taiwanMarketValueDroplist4()
+    {
+        return cy.get(registrationAccount.taiwanMarketValueDroplist4)
+    }
+    NTDCurrencyTaiwanMarketValue4() {
+        return registrationAccountObject.NTDcurrencyOptions().eq(19)
+    }
+    taiwanMarketValueMarket4() {
+        return cy.get(registrationAccount.taiwanMarketValueMarket4)
+    }
+
+    EPSValueDroplist4() {
+        return cy.get(registrationAccount.EPSValueDroplist4)
+    }
+    NTDCurrencyEPSValue4() {
+        return registrationAccountObject.NTDcurrencyOptions().eq(20)
+    }
+    EPSValueEPS4() {
+        return cy.get(registrationAccount.EPSValueEPS4)
+    }
+
+    foreignOwnershipRatioPercent4() {
+        return cy.get(registrationAccount.foreignOwnershipRatioPercent4)
+    }
+    annualCSRReportTitlesChinese4() {
+        return cy.get(registrationAccount.annualCSRReportTitlesChinese4)
+    }
+
+    annualCSRReportTitlesEnglish4() {
+        return cy.get(registrationAccount.annualCSRReportTitlesEnglish4)
+    }
+    //year 5
+    revenueGovernmentBudgetDroplist5()
+    {
+        return cy.get(registrationAccount.revenueGovernmentBudgetDroplist5)
+    }
+    revenueGovernmentBudgetRevenues5()
+    {
+        return cy.get(registrationAccount.revenueGovernmentBudgetRevenues5)
+    }
+    NTDCurrencyRevenueGovernmentBudget5() {
+        return registrationAccountObject.NTDcurrencyOptions().eq(21)
+    }
+
+    globalRevenueDroplist5()
+    {
+        return cy.get(registrationAccount.globalRevenueDroplist5)
+    }
+    NTDCurrencyGlobalRevenue5() {
+        return registrationAccountObject.NTDcurrencyOptions().eq(22)
+    }
+    USDCurrencyGlobalRevenue5()
+    {
+        return registrationAccountObject.USDCurrencyCapitalization5().eq(22)
+    }
+    globalRevenueGlobal5()
+    {
+        return cy.get(registrationAccount.globalRevenueGlobal5)
+    }
+
+    enterpriseIncomeTaxDroplist5()
+    {
+        return cy.get(registrationAccount.enterpriseIncomeTaxDroplist5)
+    }
+    NTDCurrencyEnterpriseIncomeTax5() {
+        return registrationAccountObject.NTDcurrencyOptions().eq(23)
+    }
+    enterpriseIncomeTax5()
+    {
+        return cy.get(registrationAccount.enterpriseIncomeTax5)
+    }
+
+    taiwanMarketValueDroplist5()
+    {
+        return cy.get(registrationAccount.taiwanMarketValueDroplist5)
+    }
+    NTDCurrencyTaiwanMarketValue5() {
+        return registrationAccountObject.NTDcurrencyOptions().eq(24)
+    }
+    taiwanMarketValueMarket5() {
+        return cy.get(registrationAccount.taiwanMarketValueMarket5)
+    }
+
+    EPSValueDroplist5() {
+        return cy.get(registrationAccount.EPSValueDroplist5)
+    }
+    NTDCurrencyEPSValue5() {
+        return registrationAccountObject.NTDcurrencyOptions().eq(25)
+    }
+    EPSValueEPS5() {
+        return cy.get(registrationAccount.EPSValueEPS5)
+    }
+
+    foreignOwnershipRatioPercent5() {
+        return cy.get(registrationAccount.foreignOwnershipRatioPercent5)
+    }
+    annualCSRReportTitlesChinese5() {
+        return cy.get(registrationAccount.annualCSRReportTitlesChinese5)
+    }
+
+    annualCSRReportTitlesEnglish5() {
+        return cy.get(registrationAccount.annualCSRReportTitlesEnglish5)
     }
 
     supplementaryExplanationRevenue() {
@@ -579,6 +889,11 @@ class RegitrationAccountObject {
     arrowViewIconUnitFinancials() {
         return registrationAccountObject.arrowViewIcons().eq(0)
     }
+    messageSuccess(){
+        return cy.get(registrationAccount.messageSuccess).should('be.visible').invoke('text').then((message)=>{
+            expect(message).eq(registrationAccount.textMessageRegisSuccess)
+        })
+    }
 
     registrationAccFunction(regisAcct) {
         cy.visit(baseUrl_CA)
@@ -629,6 +944,11 @@ class RegitrationAccountObject {
         registrationAccountObject.uploadFileBtnUnitInfo().click().then(() => {
             const orgUploadFileInput = registrationAccountObject.orgImageFileInput();
             orgUploadFileInput.attachFile(organizationLogoFile)
+            cy.wait(1000)
+        })
+        registrationAccountObject.uploadFileBtnUnitInfoAIType().click().then(() => {
+            const orgUploadFileInput = registrationAccountObject.orgImageFileInputAIType();
+            orgUploadFileInput.attachFile(organizationLogoFileAIType)
         })
         registrationAccountObject.radioEntityNationalityTaiwan().click()
         registrationAccountObject.radioEntityNationalityForeign().click()
@@ -680,38 +1000,116 @@ class RegitrationAccountObject {
         registrationAccountObject.arrowViewIconUnitInfo().click()
 
         //Unit Financials
-        registrationAccountObject.revenueGovernmentBudgetDroplist().click()
+        registrationAccountObject.revenueGovernmentBudgetDroplist1().click()
         registrationAccountObject.NTDCurrencyRevenueGovernmentBudget().click({force: true})
-        registrationAccountObject.revenueGovernmentBudgetRevenues().type(regisAcct.revenueGovernmentBudgetRevenues)
-        registrationAccountObject.globalRevenueDroplist().click()
+        registrationAccountObject.revenueGovernmentBudgetRevenues1().type(regisAcct.revenueGovernmentBudgetRevenues)
+        registrationAccountObject.globalRevenueDroplist1().click()
         registrationAccountObject.NTDCurrencyGlobalRevenue().click({force: true})
-        registrationAccountObject.globalRevenueGlobal().type(regisAcct.globalRevenueGlobal)
-        registrationAccountObject.enterpriseIncomeTaxDroplist().click()
+        registrationAccountObject.globalRevenueGlobal1().type(regisAcct.globalRevenueGlobal)
+        registrationAccountObject.enterpriseIncomeTaxDroplist1().click()
         registrationAccountObject.NTDCurrencyEnterpriseIncomeTax().click({force: true})
-        registrationAccountObject.enterpriseIncomeTax().type(regisAcct.enterpriseIncomeTax)
-        registrationAccountObject.taiwanMarketValueDroplist().click()
+        registrationAccountObject.enterpriseIncomeTax1().type(regisAcct.enterpriseIncomeTax)
+        registrationAccountObject.taiwanMarketValueDroplist1().click()
         registrationAccountObject.NTDCurrencyTaiwanMarketValue().click({force: true})
-        registrationAccountObject.taiwanMarketValueMarket().type(regisAcct.taiwanMarketValueMarket)
-        registrationAccountObject.EPSValueDroplist().click()
+        registrationAccountObject.taiwanMarketValueMarket1().type(regisAcct.taiwanMarketValueMarket)
+        registrationAccountObject.EPSValueDroplist1().click()
         registrationAccountObject.NTDCurrencyEPSValue().click({force: true})
-        registrationAccountObject.EPSValueEPS().type(regisAcct.EPSValueEPS)
-        registrationAccountObject.foreignOwnershipRatioPercent().type(regisAcct.foreignOwnershipRatioPercent)
-        registrationAccountObject.annualCSRReportTitlesChinese().type(regisAcct.annualCSRReportTitlesChinese)
-        registrationAccountObject.annualCSRReportTitlesEnglish().type(regisAcct.annualCSRReportTitlesEnglish)
+        registrationAccountObject.EPSValueEPS1().type(regisAcct.EPSValueEPS)
+        registrationAccountObject.foreignOwnershipRatioPercent1().type(regisAcct.foreignOwnershipRatioPercent)
+        registrationAccountObject.annualCSRReportTitlesChinese1().type(regisAcct.annualCSRReportTitlesChinese)
+        registrationAccountObject.annualCSRReportTitlesEnglish1().type(regisAcct.annualCSRReportTitlesEnglish)
+        //year 2
+        registrationAccountObject.yearBtn2()
+        registrationAccountObject.revenueGovernmentBudgetDroplist2().click()
+        registrationAccountObject.NTDCurrencyRevenueGovernmentBudget2().click({force: true})
+        registrationAccountObject.revenueGovernmentBudgetRevenues2().type(regisAcct.revenueGovernmentBudgetRevenues)
+        registrationAccountObject.globalRevenueDroplist2().click()
+        registrationAccountObject.NTDCurrencyGlobalRevenue2().click({force: true})
+        registrationAccountObject.globalRevenueGlobal2().type(regisAcct.globalRevenueGlobal)
+        registrationAccountObject.enterpriseIncomeTaxDroplist2().click()
+        registrationAccountObject.NTDCurrencyEnterpriseIncomeTax2().click({force: true})
+        registrationAccountObject.enterpriseIncomeTax2().type(regisAcct.enterpriseIncomeTax)
+        registrationAccountObject.taiwanMarketValueDroplist2().click()
+        registrationAccountObject.NTDCurrencyTaiwanMarketValue2().click({force: true})
+        registrationAccountObject.taiwanMarketValueMarket2().type(regisAcct.taiwanMarketValueMarket)
+        registrationAccountObject.EPSValueDroplist2().click()
+        registrationAccountObject.NTDCurrencyEPSValue2().click({force: true})
+        registrationAccountObject.EPSValueEPS2().type(regisAcct.EPSValueEPS)
+        registrationAccountObject.foreignOwnershipRatioPercent2().type(regisAcct.foreignOwnershipRatioPercent)
+        registrationAccountObject.annualCSRReportTitlesChinese2().type(regisAcct.annualCSRReportTitlesChinese)
+        registrationAccountObject.annualCSRReportTitlesEnglish2().type(regisAcct.annualCSRReportTitlesEnglish)
+        //year 3
+        registrationAccountObject.yearBtn3()
+        registrationAccountObject.revenueGovernmentBudgetDroplist3().click()
+        registrationAccountObject.NTDCurrencyRevenueGovernmentBudget3().click({force: true})
+        registrationAccountObject.revenueGovernmentBudgetRevenues3().type(regisAcct.revenueGovernmentBudgetRevenues)
+        registrationAccountObject.globalRevenueDroplist3().click()
+        registrationAccountObject.NTDCurrencyGlobalRevenue3().click({force: true})
+        registrationAccountObject.globalRevenueGlobal3().type(regisAcct.globalRevenueGlobal)
+        registrationAccountObject.enterpriseIncomeTaxDroplist3().click()
+        registrationAccountObject.NTDCurrencyEnterpriseIncomeTax3().click({force: true})
+        registrationAccountObject.enterpriseIncomeTax3().type(regisAcct.enterpriseIncomeTax)
+        registrationAccountObject.taiwanMarketValueDroplist3().click()
+        registrationAccountObject.NTDCurrencyTaiwanMarketValue3().click({force: true})
+        registrationAccountObject.taiwanMarketValueMarket3().type(regisAcct.taiwanMarketValueMarket)
+        registrationAccountObject.EPSValueDroplist3().click()
+        registrationAccountObject.NTDCurrencyEPSValue3().click({force: true})
+        registrationAccountObject.EPSValueEPS3().type(regisAcct.EPSValueEPS)
+        registrationAccountObject.foreignOwnershipRatioPercent3().type(regisAcct.foreignOwnershipRatioPercent)
+        registrationAccountObject.annualCSRReportTitlesChinese3().type(regisAcct.annualCSRReportTitlesChinese)
+        registrationAccountObject.annualCSRReportTitlesEnglish3().type(regisAcct.annualCSRReportTitlesEnglish)
+        //year 4
+        registrationAccountObject.yearBtn4()
+        registrationAccountObject.revenueGovernmentBudgetDroplist4().click()
+        registrationAccountObject.NTDCurrencyRevenueGovernmentBudget4().click({force: true})
+        registrationAccountObject.revenueGovernmentBudgetRevenues4().type(regisAcct.revenueGovernmentBudgetRevenues)
+        registrationAccountObject.globalRevenueDroplist4().click()
+        registrationAccountObject.NTDCurrencyGlobalRevenue4().click({force: true})
+        registrationAccountObject.globalRevenueGlobal4().type(regisAcct.globalRevenueGlobal)
+        registrationAccountObject.enterpriseIncomeTaxDroplist4().click()
+        registrationAccountObject.NTDCurrencyEnterpriseIncomeTax4().click({force: true})
+        registrationAccountObject.enterpriseIncomeTax4().type(regisAcct.enterpriseIncomeTax)
+        registrationAccountObject.taiwanMarketValueDroplist4().click()
+        registrationAccountObject.NTDCurrencyTaiwanMarketValue4().click({force: true})
+        registrationAccountObject.taiwanMarketValueMarket4().type(regisAcct.taiwanMarketValueMarket)
+        registrationAccountObject.EPSValueDroplist4().click()
+        registrationAccountObject.NTDCurrencyEPSValue4().click({force: true})
+        registrationAccountObject.EPSValueEPS4().type(regisAcct.EPSValueEPS)
+        registrationAccountObject.foreignOwnershipRatioPercent4().type(regisAcct.foreignOwnershipRatioPercent)
+        registrationAccountObject.annualCSRReportTitlesChinese4().type(regisAcct.annualCSRReportTitlesChinese)
+        registrationAccountObject.annualCSRReportTitlesEnglish4().type(regisAcct.annualCSRReportTitlesEnglish)
+        //year 5
+        registrationAccountObject.yearBtn5()
+        registrationAccountObject.revenueGovernmentBudgetDroplist5().click()
+        registrationAccountObject.NTDCurrencyRevenueGovernmentBudget5().click({force: true})
+        registrationAccountObject.revenueGovernmentBudgetRevenues5().type(regisAcct.revenueGovernmentBudgetRevenues)
+        registrationAccountObject.globalRevenueDroplist5().click()
+        registrationAccountObject.NTDCurrencyGlobalRevenue5().click({force: true})
+        registrationAccountObject.globalRevenueGlobal5().type(regisAcct.globalRevenueGlobal)
+        registrationAccountObject.enterpriseIncomeTaxDroplist5().click()
+        registrationAccountObject.NTDCurrencyEnterpriseIncomeTax5().click({force: true})
+        registrationAccountObject.enterpriseIncomeTax5().type(regisAcct.enterpriseIncomeTax)
+        registrationAccountObject.taiwanMarketValueDroplist5().click()
+        registrationAccountObject.NTDCurrencyTaiwanMarketValue5().click({force: true})
+        registrationAccountObject.taiwanMarketValueMarket5().type(regisAcct.taiwanMarketValueMarket)
+        registrationAccountObject.EPSValueDroplist5().click()
+        registrationAccountObject.NTDCurrencyEPSValue5().click({force: true})
+        registrationAccountObject.EPSValueEPS5().type(regisAcct.EPSValueEPS)
+        registrationAccountObject.foreignOwnershipRatioPercent5().type(regisAcct.foreignOwnershipRatioPercent)
+        registrationAccountObject.annualCSRReportTitlesChinese5().type(regisAcct.annualCSRReportTitlesChinese)
+        registrationAccountObject.annualCSRReportTitlesEnglish5().type(regisAcct.annualCSRReportTitlesEnglish)
+
         registrationAccountObject.supplementaryExplanationRevenue().type(regisAcct.supplementaryExplanationRevenue)
-        // registrationAccountObject.currentYearFirstSeasonEPSDroplist().click()
-        // registrationAccountObject.NTDCurrencyCurrentYearFirstSeasonEPS().click({force: true})
-        // registrationAccountObject.currentYearFirstSeasonEPSFirst().type(currentYearFirstSeasonEPSFirst)
-        // registrationAccountObject.currentYearSecondSeasonEPSDroplist().click()
-        // registrationAccountObject.NTDCurrencyCurrentYearSecondSeasonEPS().click({force: true})
-        // registrationAccountObject.currentYearSecondSeasonEPSSeason().type(currentYearSecondSeasonEPSSeason)
         registrationAccountObject.affiliatedEntityCheckBox().click()
         registrationAccountObject.affiliatedEntityName().type(regisAcct.affiliatedEntityName)
         registrationAccountObject.affiliatedEntityEditor().type(regisAcct.affiliatedEntityEditor)
         registrationAccountObject.arrowViewIconUnitFinancials().click()
 
         registrationAccountObject.iAgreeCheckbox().eq(1).click({multiple: true})
-        // registrationAccountObject.completeBtn().click()
+        // registrationAccountObject.completeBtn().click().then(()=>{
+        //     registrationAccountObject. messageSuccess()
+        // })
+
 
     }
 
