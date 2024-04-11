@@ -1,6 +1,6 @@
 import documentUpload from "../../locator/competition/documentUpload";
 
-const authorizationDocumentFileData = '../fixtures/competition/uploadDocumentData/validUploadFile/power_of_attorney.docx'
+const authorizationDocumentFileData = '../fixtures/competition/uploadDocumentData/validUploadFile/self-evaluation-form.pdf'
 
 class DocumentUploadObject {
     documentUploadTab() {
@@ -16,11 +16,11 @@ class DocumentUploadObject {
     }
 
     authorizationDocument_UploadFileBtn() {
-        return cy.get(documentUpload.UploadFileBtn).eq(0).click()
+        return cy.get(documentUpload.UploadFileBtn).eq(0).click({force: true})
     }
 
     registrationDocument_UploadFileBtn() {
-        return cy.get(documentUpload.UploadFileBtn).eq(1).click()
+        return cy.get(documentUpload.UploadFileBtn).eq(1).click({force: true})
     }
 
     authorizationDocumentSampleUpload() {
@@ -30,32 +30,45 @@ class DocumentUploadObject {
     registrationDocumentSampleUpload() {
         return cy.get(documentUpload.registrationDocumentSampleUpload)
     }
+    waitUploadFileSuccessFile1(){
+        return cy.get(documentUpload.waitUploadFileSuccess).eq(0).should('be.visible')
+    }
+    waitUploadFileSuccessFile2(){
+        return cy.get(documentUpload.waitUploadFileSuccess).eq(1).should('be.visible')
+    }
 
     saveAsDraffBtnUploadDocument() {
         return cy.get(documentUpload.saveAsDraffBtnUploadDocument).click()
     }
 
+
     submitBtn() {
         return cy.get(documentUpload.submitBtn).click()
     }
 
-    messageSuccessSubmit() {
-        return cy.get(documentUpload.messageSuccessSubmit)
+    messageSuccess() {
+        return cy.get(documentUpload.messageSuccess).should('be.visible')
+    }
+    confirmOKBtn(){
+        return cy.get(documentUpload.confirmOKBtn).eq(1).click()
     }
     documentUploadSaveAsDraffFunction() {
         documentUploadObject.documentUploadTab()
         documentUploadObject.authorizationDocument_UploadFileBtn().then(() => {
             const authorizationDocumentInput = documentUploadObject.authorizationDocumentSampleUpload();
             authorizationDocumentInput.attachFile(authorizationDocumentFileData)
-        }).then(() => {
-            documentUploadObject.registrationDocument_UploadFileBtn().then(() => {
-                const registrationDocumentInput = documentUploadObject.registrationDocumentSampleUpload();
-                registrationDocumentInput.attachFile(authorizationDocumentFileData)
-            })
-        }).then(() => {
-            documentUploadObject.saveAsDraffBtnUploadDocument()
+            cy.wait(1000)
+            documentUploadObject.waitUploadFileSuccessFile1()
         })
-
+        documentUploadObject.registrationDocument_UploadFileBtn()
+        const registrationDocumentInput = documentUploadObject.registrationDocumentSampleUpload();
+        registrationDocumentInput.attachFile(authorizationDocumentFileData).then(()=>{
+            cy.wait(1000)
+            documentUploadObject.waitUploadFileSuccessFile2()
+        })
+        documentUploadObject.saveAsDraffBtnUploadDocument().then(()=>{
+            documentUploadObject.messageSuccess()
+        })
     }
 
     documentUploadFunction() {
@@ -63,15 +76,20 @@ class DocumentUploadObject {
         documentUploadObject.authorizationDocument_UploadFileBtn().then(() => {
             const authorizationDocumentInput = documentUploadObject.authorizationDocumentSampleUpload();
             authorizationDocumentInput.attachFile(authorizationDocumentFileData)
-        }).then(() => {
-            documentUploadObject.registrationDocument_UploadFileBtn().then(() => {
-                const registrationDocumentInput = documentUploadObject.registrationDocumentSampleUpload();
-                registrationDocumentInput.attachFile(authorizationDocumentFileData)
-            })
-        }).then(() => {
-            documentUploadObject.submitBtn()
+            cy.wait(1000)
+            documentUploadObject.waitUploadFileSuccessFile1()
         })
-
+        documentUploadObject.registrationDocument_UploadFileBtn()
+        const registrationDocumentInput = documentUploadObject.registrationDocumentSampleUpload();
+        registrationDocumentInput.attachFile(authorizationDocumentFileData).then(()=>{
+            cy.wait(1000)
+            documentUploadObject.waitUploadFileSuccessFile2()
+        })
+        documentUploadObject.submitBtn().then(()=>{
+            documentUploadObject.confirmOKBtn().then(()=>{
+                documentUploadObject.messageSuccess()
+            })
+        })
     }
 }
 

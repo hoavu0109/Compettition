@@ -5,7 +5,7 @@ import registrationInformationObject
 describe("Check Regestraion Information",()=>{
     beforeEach(()=>{
         cy.visit(baseUrl_CA)
-        loginCAObject.loginCAFunction('64986595','64986595')
+        loginCAObject.loginCAFunction('92055559','92055559')
     })
     it('Save as Draft',()=>{
         registrationInformationObject.registrationInformationSaveDraftFunction()

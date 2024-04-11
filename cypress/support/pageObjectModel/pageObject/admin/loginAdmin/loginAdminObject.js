@@ -1,5 +1,6 @@
 import login from '../../../locator/admin/login.js'
 import {baseUrl_Admin} from "../../../../../../cypress.config";
+import loginCAObject from "../../competition/loginCAObject";
 
 class LoginAdminObject {
     accountInput() {
@@ -36,8 +37,12 @@ class LoginAdminObject {
     messageSuccessLogin(){
         return cy.get(login.messageSuccessLogin).should('be.visible')
     }
+    messageCloseIcon(){
+        return cy.get(login.messageCloseIcon).click()
+    }
     loginAdmin(acct, password) {
         cy.visit(baseUrl_Admin)
+        cy.clearLocalStorage()
         cy.viewport(1280, 720)
         cy.wait(500)
         loginAdminObject.languageModeEng().click()
@@ -49,7 +54,7 @@ class LoginAdminObject {
         })
         loginAdminObject.loginBtn().click().then(()=>{
             loginAdminObject.messageSuccessLogin().then(()=>{
-                cy.get('.ant-notification-notice-close-x').click()
+                loginAdminObject.messageCloseIcon()
             })
         })
 

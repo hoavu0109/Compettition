@@ -2,12 +2,12 @@ import loginCAObject from "../../support/pageObjectModel/pageObject/competition/
 import documentUploadObject from "../../support/pageObjectModel/pageObject/competition/documentUploadObject";
 describe('Check Upload Document Tab',()=>{
     beforeEach(()=>{
-        loginCAObject.loginCAFunction('42026051','42026051')
+        loginCAObject.loginCAFunction('92055559','92055559')
     })
     it('check save as draft Document Upload',()=>{
-        // documentUploadObject.documentUploadSaveAsDraffFunction();
+        documentUploadObject.documentUploadSaveAsDraffFunction();
     })
-    it('check submit Document Upload',()=>{
+    it('check submit success Document Upload',()=>{
         documentUploadObject.documentUploadFunction();
     })
 })

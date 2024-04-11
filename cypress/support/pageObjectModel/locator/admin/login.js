@@ -8,6 +8,7 @@ class Login {
     languageModeTaiwan ='.flex.items-center .cursor-pointer.highlight-div'
     getVerifyCode ='.text-xl.cursor-default'
     messageSuccessLogin ='.ant-notification-notice-message'
+    messageCloseIcon = '.ant-notification-notice-close-x'
     messageSuccessLoginText ='Successful Login'
 }
 const login = new Login();

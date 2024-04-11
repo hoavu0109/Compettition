@@ -13,6 +13,8 @@ import registrationInformationObject
     from "../../support/pageObjectModel/pageObject/competition/registrationInformationObject";
 import companyEntryManagementObject
     from "../../support/pageObjectModel/pageObject/admin/companyEntryManagement/companyEntryManagementObject";
+import documentUploadObject from "../../support/pageObjectModel/pageObject/competition/documentUploadObject";
+import paymentObject from "../../support/pageObjectModel/pageObject/competition/paymentObject";
 describe('Check registration account follow', () => {
     let index = 0;
     let regisAcct;
@@ -23,12 +25,12 @@ describe('Check registration account follow', () => {
         accInfo = accountLogin[index]
         index++;
     })
-    it('Registration acct -Fill all fields - Use new acct to login CA system', () => {
+    it('Full follow : registration acct - Registration Award, document,.. - payment', () => {
 
         // Step1: Fill registration acct form  at CA site
         registrationAccountObject.registrationAccFunction(regisAcct)
 
-        //Step2: Admin submit acct regitrtion form
+        //Step2: Admin submit acct registration form
         registrationAccountObject.enterCorporateCode().invoke('val').then((corporateCode) => {
             registrationAccountObject.completeBtn().click().then(()=>{
                 registrationAccountObject. messageSuccess()
@@ -37,26 +39,33 @@ describe('Check registration account follow', () => {
             loginAdminObject.loginAdmin(accInfo.acct, accInfo.pas)
             commonAdminObject.competitionArea()
             businessListObject.businessTab()
-            //search main email of the company registration
+            //search main email of the company registration and result is only one data
             businessListObject.searchFunction(corporateCode)
-            // check that the result is only one data
             businessListObject.numberOfData().should('have.lengthOf',1)
             // admin approved registration acct from company
             businessListObject.approvedRegistrationForm()
-
-            //reset password for the company have acct submit by admin
-            // businessListObject.resetPasswordCompany('Admin123')
-
-            // Step3: login again into CA
+            // Step3: login again into CA => submit award information form & registration Information
             loginCAObject.loginCAFunction(corporateCode,corporateCode)
-
-            //submit award information form
             awardInformationFromObject.submitAwardInformationForm()
-            // submit registration Information
             registrationInformationObject.registrationInformationSubmitFunction()
-            // go to Admin to approve Awrad registration
+            // Step 4: go to Admin to approve Award registration
             loginAdminObject.loginAdmin(accInfo.acct, accInfo.pas)
             companyEntryManagementObject.approvedRegistrationAward(corporateCode)
+            // Step 5: login CA => submit document upload
+            loginCAObject.loginCAFunction(corporateCode,corporateCode)
+            documentUploadObject.documentUploadFunction()
+            // Step 6: go to Admin to approve document upload
+            loginAdminObject.loginAdmin(accInfo.acct, accInfo.pas)
+            companyEntryManagementObject.approvedRegistrationAward(corporateCode)
+
+            // step 7: login CA to create payment order
+            loginCAObject.loginCAFunction(corporateCode,corporateCode)
+            paymentObject.createOrderPaymentManualForOneAward()
+
+            // Step 8: go to Admin to to approve payment order
+            loginAdminObject.loginAdmin(accInfo.acct, accInfo.pas)
+            companyEntryManagementObject.approvedRegistrationAward(corporateCode)
+            cy.get('#rc-tabs-0-tab-paymentTitle').click()
 
         })
     })

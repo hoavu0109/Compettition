@@ -19,6 +19,9 @@ class LoginCAObject {
     messageLoginCASuccess(){
         return cy.get(loginCALocator.messageLoginCASuccess).should('be.visible')
     }
+    messageSuccessCloseIcon(){
+        return cy.get(loginCALocator.messageSuccessCloseIcon).click()
+    }
     signUpBtn(){
         return cy.get(loginCALocator.signUpBtn)
     }
@@ -34,6 +37,7 @@ class LoginCAObject {
         })
         loginCAObject.loginBtn().click().then(()=>{
             loginCAObject.messageLoginCASuccess()
+            loginCAObject.messageSuccessCloseIcon()
         })
     }
 }
