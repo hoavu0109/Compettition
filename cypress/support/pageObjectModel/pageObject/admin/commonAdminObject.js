@@ -8,6 +8,10 @@ class CommonAdminObject{
     competitionArea(){
         return  cy.get(commonAdmin.menuHeader).eq(1).trigger('mouseover')
     }
+
+    authorityManagement(){
+        return  cy.get(commonAdmin.menuHeader).eq(0).trigger('mouseover').click({force:true})
+    }
     monitoring(){
         return  cy.get(commonAdmin.menuHeader).wait(1000).eq(1).trigger('mouseover')
     }
@@ -31,7 +35,7 @@ class CommonAdminObject{
     }
     searchFunction(search_value){
         cy.wait(500)
-        commonAdminObject.emailSearch().type(search_value,{force: true} )
+        commonAdminObject.emailSearch().clear().type(search_value,{force: true} )
         commonAdminObject.searchBtn().click()
         cy.wait(1000)
     }
