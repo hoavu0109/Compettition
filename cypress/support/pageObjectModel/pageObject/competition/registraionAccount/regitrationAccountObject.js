@@ -6,8 +6,11 @@ import {baseUrl_CA} from "../../../../../../cypress.config";
 const organizationLogoFile = '../fixtures/competition/registrationAcctData/organizationLogoImage.jpg';
 const organizationLogoFileAIType = '../fixtures/competition/registrationAcctData/organizationLogoImage.ai';
 const registrationCertificateFile = '../fixtures/competition/registrationAcctData/registrationCertificate.pdf'
-const randomNumbers = Cypress._.random(0, 999);
+const randomNumbers = Cypress._.random(0, 99999);
 const corporateCodeRandom = Cypress._.random(0, 99999999);
+let regisAcctData = {
+    corporateCode: ''
+}
 
 class RegitrationAccountObject {
     // header and common
@@ -1000,7 +1003,7 @@ class RegitrationAccountObject {
         registrationAccountObject.arrowViewIconUnitInfo().click()
 
         //Unit Financials
-        registrationAccountObject.revenueGovernmentBudgetDroplist1().click()
+        // registrationAccountObject.revenueGovernmentBudgetDroplist1().click()
         registrationAccountObject.NTDCurrencyRevenueGovernmentBudget().click({force: true})
         registrationAccountObject.revenueGovernmentBudgetRevenues1().type(regisAcct.revenueGovernmentBudgetRevenues)
         registrationAccountObject.globalRevenueDroplist1().click()
@@ -1019,8 +1022,8 @@ class RegitrationAccountObject {
         registrationAccountObject.annualCSRReportTitlesChinese1().type(regisAcct.annualCSRReportTitlesChinese)
         registrationAccountObject.annualCSRReportTitlesEnglish1().type(regisAcct.annualCSRReportTitlesEnglish)
         //year 2
-        registrationAccountObject.yearBtn2()
-        registrationAccountObject.revenueGovernmentBudgetDroplist2().click()
+        // registrationAccountObject.yearBtn2()
+        // registrationAccountObject.revenueGovernmentBudgetDroplist2().click()
         registrationAccountObject.NTDCurrencyRevenueGovernmentBudget2().click({force: true})
         registrationAccountObject.revenueGovernmentBudgetRevenues2().type(regisAcct.revenueGovernmentBudgetRevenues)
         registrationAccountObject.globalRevenueDroplist2().click()
@@ -1039,8 +1042,8 @@ class RegitrationAccountObject {
         registrationAccountObject.annualCSRReportTitlesChinese2().type(regisAcct.annualCSRReportTitlesChinese)
         registrationAccountObject.annualCSRReportTitlesEnglish2().type(regisAcct.annualCSRReportTitlesEnglish)
         //year 3
-        registrationAccountObject.yearBtn3()
-        registrationAccountObject.revenueGovernmentBudgetDroplist3().click()
+        // registrationAccountObject.yearBtn3()
+        // registrationAccountObject.revenueGovernmentBudgetDroplist3().click()
         registrationAccountObject.NTDCurrencyRevenueGovernmentBudget3().click({force: true})
         registrationAccountObject.revenueGovernmentBudgetRevenues3().type(regisAcct.revenueGovernmentBudgetRevenues)
         registrationAccountObject.globalRevenueDroplist3().click()
@@ -1058,9 +1061,9 @@ class RegitrationAccountObject {
         registrationAccountObject.foreignOwnershipRatioPercent3().type(regisAcct.foreignOwnershipRatioPercent)
         registrationAccountObject.annualCSRReportTitlesChinese3().type(regisAcct.annualCSRReportTitlesChinese)
         registrationAccountObject.annualCSRReportTitlesEnglish3().type(regisAcct.annualCSRReportTitlesEnglish)
-        //year 4
-        registrationAccountObject.yearBtn4()
-        registrationAccountObject.revenueGovernmentBudgetDroplist4().click()
+        // year 4
+        // registrationAccountObject.yearBtn4()
+        // registrationAccountObject.revenueGovernmentBudgetDroplist4().click()
         registrationAccountObject.NTDCurrencyRevenueGovernmentBudget4().click({force: true})
         registrationAccountObject.revenueGovernmentBudgetRevenues4().type(regisAcct.revenueGovernmentBudgetRevenues)
         registrationAccountObject.globalRevenueDroplist4().click()
@@ -1079,8 +1082,8 @@ class RegitrationAccountObject {
         registrationAccountObject.annualCSRReportTitlesChinese4().type(regisAcct.annualCSRReportTitlesChinese)
         registrationAccountObject.annualCSRReportTitlesEnglish4().type(regisAcct.annualCSRReportTitlesEnglish)
         //year 5
-        registrationAccountObject.yearBtn5()
-        registrationAccountObject.revenueGovernmentBudgetDroplist5().click()
+        // registrationAccountObject.yearBtn5()
+        // registrationAccountObject.revenueGovernmentBudgetDroplist5().click()
         registrationAccountObject.NTDCurrencyRevenueGovernmentBudget5().click({force: true})
         registrationAccountObject.revenueGovernmentBudgetRevenues5().type(regisAcct.revenueGovernmentBudgetRevenues)
         registrationAccountObject.globalRevenueDroplist5().click()
@@ -1106,6 +1109,10 @@ class RegitrationAccountObject {
         registrationAccountObject.arrowViewIconUnitFinancials().click()
 
         registrationAccountObject.iAgreeCheckbox().eq(1).click({multiple: true})
+        regisAcctData ={
+            corporateCode: corporateCodeRandom
+        }
+        cy.writeFile('cypress/fixtures/competition/registrationAcctData/exportRegisAcctData.json', regisAcctData)
         // registrationAccountObject.completeBtn().click().then(()=>{
         //     registrationAccountObject. messageSuccess()
         // })

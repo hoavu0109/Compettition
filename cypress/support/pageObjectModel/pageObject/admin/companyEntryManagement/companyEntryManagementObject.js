@@ -6,7 +6,8 @@ import businessListTab from "../../../locator/admin/businessListTab";
 class CompanyEntryManagementObject {
     // list company screen
     companyEntryManagement() {
-        return cy.get(companyEntryManagementTab.companyEntryManagement).eq(2)
+        return cy.get(companyEntryManagementTab.companyEntryManagement).eq(2).click({force: true})
+
     }
 
     queryAward() {
@@ -112,8 +113,10 @@ class CompanyEntryManagementObject {
         return cy.get(companyEntryManagementTab.messageSuccessApprovedAwardRegistration).should('be.visible')
     }
     approvedRegistrationAward(Company_Code){
-        commonAdminObject.competitionArea().click({force: true})
-        companyEntryManagementObject.companyEntryManagement().click()
+        commonAdminObject.competitionArea().click({force: true}).then(()=>{
+            commonAdminObject.awarDataManagement()
+            companyEntryManagementObject.companyEntryManagement().click()
+        })
         commonAdminObject.searchFunction(Company_Code)
 
         companyEntryManagementObject.editCompanyDataBtn(0).click({force: true})

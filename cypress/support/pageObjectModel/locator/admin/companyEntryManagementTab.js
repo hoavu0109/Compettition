@@ -1,6 +1,6 @@
 class CompanyEntryManagementTab{
     // element at list company screen
-    companyEntryManagement = '.ant-menu-item.ant-menu-item-only-child'
+    companyEntryManagement = '.ant-menu-item.ant-menu-item-only-child > span'
     queryDroplists ='.ant-select-selection-overflow'
     queryCountry ='#rc_select_13'
     pendingStatus = '.ant-select-item.ant-select-item-option[title="Pending"]'

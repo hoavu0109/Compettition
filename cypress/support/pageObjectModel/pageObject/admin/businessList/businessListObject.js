@@ -2,7 +2,7 @@ import businessListTab from "../../../locator/admin/businessListTab";
 import commonAdminObject from "../commonAdminObject";
 class BusinessListObject{
     businessTab(){
-        return cy.get(businessListTab.businessTab).eq(1).click({force: true})
+        cy.get(businessListTab.businessTab).eq(1).click({force: true})
     }
     emailSearch(){
         return cy.get(businessListTab.emailSearch)

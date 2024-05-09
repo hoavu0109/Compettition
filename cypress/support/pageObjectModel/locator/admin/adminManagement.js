@@ -22,6 +22,10 @@ class AdminManagement{
     editName ='#editInfoAdminFormBasic_administratorName'
     editSaveBtn ='[form="editInfoAdminForm"]'
 
+    confirmDeleteBtn ='[form="editAdminGroupForm"]'
+
+
+
 }
 const adminManagement = new AdminManagement;
 export  default adminManagement

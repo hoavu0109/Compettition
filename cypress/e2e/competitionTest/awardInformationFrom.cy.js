@@ -1,10 +1,10 @@
 import awardInformationFromObject
     from "../../support/pageObjectModel/pageObject/competition/awardInformationFromObject";
 import loginCAObject from "../../support/pageObjectModel/pageObject/competition/loginCAObject";
-
+import exportRegisAcctData from "../../fixtures/competition/registrationAcctData/exportRegisAcctData.json"
 describe('Check Award Information Form', () => {
     beforeEach(() => {
-        loginCAObject.loginCAFunction('92055559', '92055559')
+        loginCAObject.loginCAFunction(exportRegisAcctData.corporateCode, exportRegisAcctData.corporateCode)
     })
     it('check submit award information form', () => {
         // check price, submit award information form

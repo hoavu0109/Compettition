@@ -73,11 +73,11 @@ class AdminManagementObject {
     }
 
     resetPassword() {
-        return cy.get(adminManagement.resetPassword).type('Admin1234')
+        return cy.get(adminManagement.resetPassword).type('Admin123')
     }
 
     resetPasswordConfirm() {
-        return cy.get(adminManagement.resetPasswordConfirm).type('Admin1234')
+        return cy.get(adminManagement.resetPasswordConfirm).type('Admin123')
     }
 
     resetSaveBtn() {
@@ -98,6 +98,10 @@ class AdminManagementObject {
 
     editSaveBtn() {
         return cy.get(adminManagement.editSaveBtn).click()
+    }
+
+    confirmDeleteBtn() {
+        return cy.get(adminManagement.confirmDeleteBtn).eq(0).click()
     }
 
     createAdminAcctFunction() {
@@ -135,11 +139,19 @@ class AdminManagementObject {
             this.messageSuccess()
         })
     }
-    editAdminAcctFunction(){
+
+    editAdminAcctFunction() {
         this.editIconBtn()
         // this.unSelectWA()
         this.editName()
         this.editSaveBtn().then(() => {
+            this.messageSuccess()
+        })
+    }
+
+    deleteAdminAcct() {
+        this.deleteIconBtn()
+        this.confirmDeleteBtn().then(() => {
             this.messageSuccess()
         })
     }

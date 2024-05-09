@@ -37,8 +37,10 @@ describe('Check registration account follow', () => {
             })
             // login Admin system -> go to Business list tab to find the record include email value
             loginAdminObject.loginAdmin(accInfo.acct, accInfo.pas)
-            commonAdminObject.competitionArea()
-            businessListObject.businessTab()
+            commonAdminObject.competitionArea().then(()=>{
+                commonAdminObject.awarDataManagement()
+                businessListObject.businessTab()
+            })
             //search main email of the company registration and result is only one data
             businessListObject.searchFunction(corporateCode)
             businessListObject.numberOfData().should('have.lengthOf',1)

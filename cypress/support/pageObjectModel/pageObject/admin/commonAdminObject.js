@@ -8,6 +8,9 @@ class CommonAdminObject{
     competitionArea(){
         return  cy.get(commonAdmin.menuHeader).eq(1).trigger('mouseover')
     }
+    awarDataManagement(){
+        cy.get(commonAdmin.awarDataManagement).eq(3).click({force: true})
+    }
 
     authorityManagement(){
         return  cy.get(commonAdmin.menuHeader).eq(0).trigger('mouseover').click({force:true})
@@ -30,6 +33,12 @@ class CommonAdminObject{
     paginationData(){
         return cy.get(commonAdmin.paginationData)
     }
+    logoutIcon(){
+        return cy.get(commonAdmin.logoutIcon).trigger('mouseover')
+    }
+    logoutBtn(){
+        return cy.get(commonAdmin.logoutBtn).eq(1).click()
+    }
     emailSearch(){
         return cy.get(commonAdmin.emailSearch)
     }
@@ -38,6 +47,10 @@ class CommonAdminObject{
         commonAdminObject.emailSearch().clear().type(search_value,{force: true} )
         commonAdminObject.searchBtn().click()
         cy.wait(1000)
+    }
+    logoutFunction(){
+        this.logoutIcon()
+        this.logoutBtn()
     }
 
 }

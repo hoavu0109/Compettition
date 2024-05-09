@@ -1,5 +1,5 @@
 class BusinessListTab{
-    businessTab = '.ant-menu-title-content'
+    businessTab = '.ant-menu-item.ant-menu-item-only-child > span'
     emailSearch ='.ant-input.css-1fpjgd5.w-full.h-10'
     rowOfData ='.ant-table-row.ant-table-row-level-0'
 

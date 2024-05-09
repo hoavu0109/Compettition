@@ -4,6 +4,7 @@ import businessListObject from "../../support/pageObjectModel/pageObject/admin/b
 import commonAdminObject from "../../support/pageObjectModel/pageObject/admin/commonAdminObject";
 import loginCAObject from "../../support/pageObjectModel/pageObject/competition/loginCAObject";
 import {baseUrl_Admin} from "../../../cypress.config";
+import exportRegisAcctData from "../../fixtures/competition/registrationAcctData/exportRegisAcctData.json"
 describe('Check Business List', () => {
     beforeEach(() => {
         loginAdminObject.loginAdmin(accountLogin[0].acct, accountLogin[0].pas)
@@ -13,12 +14,14 @@ describe('Check Business List', () => {
 
         cy.wait(2000)
         commonAdminObject.competitionArea().then(()=>{
-            businessListObject.businessTab().click({force: true})
+            commonAdminObject.awarDataManagement()
+            businessListObject.businessTab()
+    
         })
 
 
         //search data
-        businessListObject.searchFunction('cuong.nguyenmanh+99@eastgate-software.com')
+        businessListObject.searchFunction(exportRegisAcctData.corporateCode)
 
         // check that the result is only one data
         businessListObject.numberOfData().should('have.lengthOf',1)
@@ -27,7 +30,7 @@ describe('Check Business List', () => {
         businessListObject.approvedRegistrationForm()
 
         //reset password for the company have acct submit by admin
-        businessListObject.resetPasswordCompany('Admin123')
+        // businessListObject.resetPasswordCompany('Admin123')
 
     })
 })

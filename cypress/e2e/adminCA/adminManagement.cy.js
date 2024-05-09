@@ -3,7 +3,7 @@ import adminManagementObject from "../../support/pageObjectModel/pageObject/admi
 import commonAdminObject from "../../support/pageObjectModel/pageObject/admin/commonAdminObject";
 
 describe('Test Admin management', () => {
-    before(() => {
+    beforeEach(() => {
         loginAdminObject.loginAdmin('hoa.vu', 'Admin123')
     })
     context('Check happy case: create, delete, edit, change pass', () => {
@@ -20,7 +20,7 @@ describe('Test Admin management', () => {
                 })
             })
         })
-        it.only('Edit Admin acct ', () => {
+        it('Edit Admin acct ', () => {
             adminManagementObject.searchAdminUserFunction('AutoUser')
             commonAdminObject.rowOfData(0).then((acctElement) => {
                 cy.get(acctElement).find('td').eq(0).invoke('text').then((acctValue) => {
@@ -30,13 +30,25 @@ describe('Test Admin management', () => {
             })
         })
         it('Use new acct Admin to login Admin site ', () => {
+            adminManagementObject.searchAdminUserFunction('AutoUser')
+            commonAdminObject.rowOfData(0).then((acctElement) => {
+                cy.get(acctElement).find('td').eq(0).invoke('text').then((acctValue) => {
+                    adminManagementObject.searchAdminUserFunction(acctValue)
+                    commonAdminObject.logoutFunction()
+                    loginAdminObject.loginAdmin(acctValue,'Admin123')
 
+                })
+            })
         })
-        it('Verify all permission of Admin acct at Admin site', () => {
 
-        })
         it('Delete Admin acct ', () => {
-
+            adminManagementObject.searchAdminUserFunction('AutoUser')
+            commonAdminObject.rowOfData(0).then((acctElement) => {
+                cy.get(acctElement).find('td').eq(0).invoke('text').then((acctValue) => {
+                    adminManagementObject.searchAdminUserFunction(acctValue)
+                    adminManagementObject.deleteAdminAcct()
+                })
+            })
         })
     })
 })
